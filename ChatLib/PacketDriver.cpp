@@ -10,8 +10,7 @@
 #include <iostream>
 #include "PacketDriver.hpp"
 #include "PacketWrapper.hpp"
-#include <sys/types.h>
-#include <sys/socket.h>
+
 #include <string.h>
 
 namespace ChatLib
@@ -51,52 +50,29 @@ namespace ChatLib
         }
     }
 
+    //TODO: get rid of packet status and merge into errors.h
     PACKET_STATUS PacketDriver::SendPackets(int socket)
     {
-        PACKET_STATUS status = PACKET_SUCCESS;
+        STATUS status = STATUS_OK;
         int total_bytes_sent = 0;
         
-        while(!this->OutgoingPackets[socket].empty() && total_bytes_sent < MAX_BUFFER_SIZE && status == PACKET_SUCCESS)
+        while(!this->OutgoingPackets[socket].empty() && total_bytes_sent < MAX_BUFFER_SIZE && status == STATUS_OK)
         {
             PACKET_T packet = this->OutgoingPackets[socket].front();
             this->OutgoingPackets[socket].pop();
-            status = SendAll(socket, (char*) &packet, packet.header.length);
+            status = Device->Write(socket, (BYTE*) &packet, packet.header.length);
             total_bytes_sent += packet.header.length;
         }
         
-        return status;
+        return status == STATUS_OK ? PACKET_SUCCESS : PACKET_FAILURE;
     }
-    
-    PACKET_STATUS PacketDriver::SendAll(int socket, const char* buf, int length)
-    {
-        int total = 0;
-        int bytes_left = length;
-        int bytes_sent = 0;
-        
-        while(total < bytes_left)
-        {
-            bytes_sent = send(socket, buf + total, bytes_left, 0);
 
-            if(bytes_sent == -1)
-            {
-                break;
-            }
-            else
-            {
-                total += bytes_sent;
-                bytes_left -= bytes_sent;
-            }
-        }
-        
-        return bytes_sent == -1 ? PACKET_FAILURE : PACKET_SUCCESS;
-    }
-    
     PACKET_STATUS PacketDriver::RecvPacket(int socket)
     {
         PACKET_STATUS status = PACKET_SUCCESS;
         bool found_packet = false;
         
-        status = Receive(socket, 0);
+        RecBufEnd += Device->Read(socket, &ReceivedBuffer[RecBufStart], 1000);
         
         do
         {
@@ -113,6 +89,7 @@ namespace ChatLib
             }
             else if (found_packet)
             {
+                //TODO: push to the router
                 ReceivedPackets.push(packet);
             }
         }
@@ -121,29 +98,6 @@ namespace ChatLib
         return status;
     }
     
-    PACKET_STATUS PacketDriver::Receive(int socket, int timeout)
-    {
-        PACKET_STATUS status = PACKET_SUCCESS;
-        int bytes_received = 0;
-        char* cur_buf = &ReceivedBuffer[RecBufEnd];
-
-        if(timeout == 0 && GetRecBufSize() < MAX_RX_BUF_SIZE)
-        {
-            bytes_received = recv(socket, cur_buf, MAX_BUFFER_SIZE * sizeof(char), 0);
-        }
-        
-        if(bytes_received != -1)
-        {
-            RecBufEnd += bytes_received;
-
-            if(bytes_received == 0 || GetRecBufSize() >= MAX_RX_BUF_SIZE)
-            {
-                status = PACKET_FAILURE;
-            }
-        }
-        
-        return status;
-    }
     
     int PacketDriver::GetRecBufSize()
     {

@@ -16,6 +16,11 @@
 		DA54B8051C6C2C4100269632 /* Record.hpp in Headers */ = {isa = PBXBuildFile; fileRef = DA54B8031C6C2C4100269632 /* Record.hpp */; };
 		DA54B8091C6EC65C00269632 /* PacketRouter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA54B8071C6EC65C00269632 /* PacketRouter.cpp */; };
 		DA54B80A1C6EC65C00269632 /* PacketRouter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = DA54B8081C6EC65C00269632 /* PacketRouter.hpp */; };
+		DAEDC9581C993792009B1794 /* TcpDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEDC9571C993792009B1794 /* TcpDevice.h */; };
+		DAEDC95B1C993A0A009B1794 /* IIODevice.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEDC95A1C993A0A009B1794 /* IIODevice.h */; };
+		DAEDC95D1C993C49009B1794 /* TypeDefs.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEDC95C1C993C49009B1794 /* TypeDefs.h */; };
+		DAEDC95F1C993F26009B1794 /* Errors.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEDC95E1C993F26009B1794 /* Errors.h */; };
+		DAEDC9611C99467C009B1794 /* TcpDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAEDC9601C99467C009B1794 /* TcpDevice.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,11 @@
 		DA54B8031C6C2C4100269632 /* Record.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Record.hpp; sourceTree = "<group>"; };
 		DA54B8071C6EC65C00269632 /* PacketRouter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PacketRouter.cpp; sourceTree = "<group>"; };
 		DA54B8081C6EC65C00269632 /* PacketRouter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PacketRouter.hpp; sourceTree = "<group>"; };
+		DAEDC9571C993792009B1794 /* TcpDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcpDevice.h; sourceTree = "<group>"; };
+		DAEDC95A1C993A0A009B1794 /* IIODevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIODevice.h; sourceTree = "<group>"; };
+		DAEDC95C1C993C49009B1794 /* TypeDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeDefs.h; sourceTree = "<group>"; };
+		DAEDC95E1C993F26009B1794 /* Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Errors.h; sourceTree = "<group>"; };
+		DAEDC9601C99467C009B1794 /* TcpDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TcpDevice.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +71,7 @@
 		DA54B7DC1C67ED2900269632 /* ChatLib */ = {
 			isa = PBXGroup;
 			children = (
+				DAEDC9591C9939EF009B1794 /* Interface */,
 				DA54B8061C6EC62D00269632 /* Service */,
 				DA54B7FC1C68410400269632 /* Model */,
 				DA54B7DD1C67ED2900269632 /* PacketDriver.hpp */,
@@ -69,6 +80,10 @@
 				DA54B7F11C67F84700269632 /* PacketWrapper.hpp */,
 				DA54B7F51C67FC1D00269632 /* Packet.hpp */,
 				DA54B7F91C68076A00269632 /* Crc.hpp */,
+				DAEDC9571C993792009B1794 /* TcpDevice.h */,
+				DAEDC9601C99467C009B1794 /* TcpDevice.cpp */,
+				DAEDC95C1C993C49009B1794 /* TypeDefs.h */,
+				DAEDC95E1C993F26009B1794 /* Errors.h */,
 			);
 			path = ChatLib;
 			sourceTree = "<group>";
@@ -90,6 +105,14 @@
 			name = Service;
 			sourceTree = "<group>";
 		};
+		DAEDC9591C9939EF009B1794 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				DAEDC95A1C993A0A009B1794 /* IIODevice.h */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -97,12 +120,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAEDC95D1C993C49009B1794 /* TypeDefs.h in Headers */,
 				DA54B8051C6C2C4100269632 /* Record.hpp in Headers */,
 				DA54B80A1C6EC65C00269632 /* PacketRouter.hpp in Headers */,
+				DAEDC95B1C993A0A009B1794 /* IIODevice.h in Headers */,
 				DA54B7FB1C68076A00269632 /* Crc.hpp in Headers */,
+				DAEDC95F1C993F26009B1794 /* Errors.h in Headers */,
 				DA54B7F71C67FC1D00269632 /* Packet.hpp in Headers */,
 				DA54B7DE1C67ED2900269632 /* PacketDriver.hpp in Headers */,
 				DA54B7F31C67F84700269632 /* PacketWrapper.hpp in Headers */,
+				DAEDC9581C993792009B1794 /* TcpDevice.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA54B7E21C67ED2900269632 /* PacketDriver.cpp in Sources */,
+				DAEDC9611C99467C009B1794 /* TcpDevice.cpp in Sources */,
 				DA54B8091C6EC65C00269632 /* PacketRouter.cpp in Sources */,
 				DA54B7F21C67F84700269632 /* PacketWrapper.cpp in Sources */,
 			);
@@ -289,6 +317,7 @@
 				DA54B7E71C67ED2900269632 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

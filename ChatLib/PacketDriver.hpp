@@ -16,6 +16,7 @@
 #include "Packet.hpp"
 #include <queue>
 #include <map>
+#include "IIODevice.h"
 
 namespace ChatLib
 {
@@ -55,6 +56,7 @@ namespace ChatLib
         int RecBufStart;
         int RecBufEnd;
         std::queue<PACKET_T> ReceivedPackets;
+        Interface::IIODevice* Device;
     };
 }
 
