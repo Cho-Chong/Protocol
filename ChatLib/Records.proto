@@ -1,0 +1,5 @@
+message Record
+{
+required int32 id = 1;
+required int32 test = 2;
+}

@@ -21,7 +21,23 @@
 		DAEDC95D1C993C49009B1794 /* TypeDefs.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEDC95C1C993C49009B1794 /* TypeDefs.h */; };
 		DAEDC95F1C993F26009B1794 /* Errors.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEDC95E1C993F26009B1794 /* Errors.h */; };
 		DAEDC9611C99467C009B1794 /* TcpDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAEDC9601C99467C009B1794 /* TcpDevice.cpp */; };
+		DAEDC96B1C9A5C69009B1794 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEDC96A1C9A5C69009B1794 /* libprotobuf.a */; };
+		DAEDC9771C9A69C5009B1794 /* records.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = DAEDC9751C9A69C5009B1794 /* records.pb.cc */; };
+		DAEDC9781C9A69C5009B1794 /* records.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEDC9761C9A69C5009B1794 /* records.pb.h */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		DAEDC9621C9A548C009B1794 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.proto";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		DA54B7DA1C67ED2900269632 /* libChatLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChatLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +55,11 @@
 		DAEDC95C1C993C49009B1794 /* TypeDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeDefs.h; sourceTree = "<group>"; };
 		DAEDC95E1C993F26009B1794 /* Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Errors.h; sourceTree = "<group>"; };
 		DAEDC9601C99467C009B1794 /* TcpDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TcpDevice.cpp; sourceTree = "<group>"; };
+		DAEDC96A1C9A5C69009B1794 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = ChatLib/Google/protobuf/lib/libprotobuf.a; sourceTree = "<group>"; };
+		DAEDC9721C9A6398009B1794 /* Records.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Records.proto; sourceTree = "<group>"; };
+		DAEDC9741C9A6971009B1794 /* proto_script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = proto_script.sh; sourceTree = "<group>"; };
+		DAEDC9751C9A69C5009B1794 /* records.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = records.pb.cc; sourceTree = "<group>"; };
+		DAEDC9761C9A69C5009B1794 /* records.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = records.pb.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAEDC96B1C9A5C69009B1794 /* libprotobuf.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +77,7 @@
 		DA54B7D11C67ED2900269632 = {
 			isa = PBXGroup;
 			children = (
+				DAEDC96A1C9A5C69009B1794 /* libprotobuf.a */,
 				DA54B7DC1C67ED2900269632 /* ChatLib */,
 				DA54B7DB1C67ED2900269632 /* Products */,
 			);
@@ -71,6 +94,7 @@
 		DA54B7DC1C67ED2900269632 /* ChatLib */ = {
 			isa = PBXGroup;
 			children = (
+				DAEDC96C1C9A5F07009B1794 /* Google */,
 				DAEDC9591C9939EF009B1794 /* Interface */,
 				DA54B8061C6EC62D00269632 /* Service */,
 				DA54B7FC1C68410400269632 /* Model */,
@@ -84,6 +108,7 @@
 				DAEDC9601C99467C009B1794 /* TcpDevice.cpp */,
 				DAEDC95C1C993C49009B1794 /* TypeDefs.h */,
 				DAEDC95E1C993F26009B1794 /* Errors.h */,
+				DAEDC9741C9A6971009B1794 /* proto_script.sh */,
 			);
 			path = ChatLib;
 			sourceTree = "<group>";
@@ -113,6 +138,16 @@
 			name = Interface;
 			sourceTree = "<group>";
 		};
+		DAEDC96C1C9A5F07009B1794 /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				DAEDC9751C9A69C5009B1794 /* records.pb.cc */,
+				DAEDC9761C9A69C5009B1794 /* records.pb.h */,
+				DAEDC9721C9A6398009B1794 /* Records.proto */,
+			);
+			name = Google;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -126,6 +161,7 @@
 				DAEDC95B1C993A0A009B1794 /* IIODevice.h in Headers */,
 				DA54B7FB1C68076A00269632 /* Crc.hpp in Headers */,
 				DAEDC95F1C993F26009B1794 /* Errors.h in Headers */,
+				DAEDC9781C9A69C5009B1794 /* records.pb.h in Headers */,
 				DA54B7F71C67FC1D00269632 /* Packet.hpp in Headers */,
 				DA54B7DE1C67ED2900269632 /* PacketDriver.hpp in Headers */,
 				DA54B7F31C67F84700269632 /* PacketWrapper.hpp in Headers */,
@@ -140,11 +176,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA54B7E51C67ED2900269632 /* Build configuration list for PBXNativeTarget "ChatLib" */;
 			buildPhases = (
+				DAEDC97D1C9A6B83009B1794 /* ShellScript */,
 				DA54B7D61C67ED2900269632 /* Sources */,
 				DA54B7D71C67ED2900269632 /* Frameworks */,
 				DA54B7D81C67ED2900269632 /* Headers */,
 			);
 			buildRules = (
+				DAEDC9621C9A548C009B1794 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -184,6 +222,25 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DAEDC97D1C9A6B83009B1794 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Records.proto",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/records.pb.cc",
+				"$(DERIVED_FILE_DIR)/records.pb.h",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = /Users/Cho/Documents/Programming/Chat/ChatLib/ChatLib/proto_script.sh;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DA54B7D61C67ED2900269632 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -193,6 +250,7 @@
 				DAEDC9611C99467C009B1794 /* TcpDevice.cpp in Sources */,
 				DA54B8091C6EC65C00269632 /* PacketRouter.cpp in Sources */,
 				DA54B7F21C67F84700269632 /* PacketWrapper.cpp in Sources */,
+				DAEDC9771C9A69C5009B1794 /* records.pb.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,9 +339,20 @@
 		DA54B7E61C67ED2900269632 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = /Users/Cho/Documents/Programming/Chat/ChatLib/ChatLib/Google/protobuf/include;
+				"HEADER_SEARCH_PATHS[arch=*]" = /Users/Cho/Documents/Programming/Chat/ChatLib/ChatLib/Google/protobuf/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChatLib/Google/protobuf/lib",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChatLib/Google/protobuf/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -291,9 +360,20 @@
 		DA54B7E71C67ED2900269632 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				HEADER_SEARCH_PATHS = /Users/Cho/Documents/Programming/Chat/ChatLib/ChatLib/Google/protobuf/include;
+				"HEADER_SEARCH_PATHS[arch=*]" = /Users/Cho/Documents/Programming/Chat/ChatLib/ChatLib/Google/protobuf/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChatLib/Google/protobuf/lib",
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChatLib/Google/protobuf/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
