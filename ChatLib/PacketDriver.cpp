@@ -15,7 +15,6 @@
 
 namespace ChatLib
 {
-    static const int MAX_BUFFER_SIZE = 1024; //TODO: bounded by physical layer
     
     PacketDriver::PacketDriver() : RecBufStart(0),
                                              RecBufEnd(0)
@@ -56,12 +55,17 @@ namespace ChatLib
         STATUS status = STATUS_OK;
         int total_bytes_sent = 0;
         
-        while(!this->OutgoingPackets[socket].empty() && total_bytes_sent < MAX_BUFFER_SIZE && status == STATUS_OK)
+        while(!this->OutgoingPackets[socket].empty() && total_bytes_sent < MAX_PACKET_SIZE && status == STATUS_OK)
         {
-            PACKET_T packet = this->OutgoingPackets[socket].front();
+            auto packet = this->OutgoingPackets[socket].front();
             this->OutgoingPackets[socket].pop();
-            status = Device->Write(socket, (BYTE*) &packet, packet.header.length);
-            total_bytes_sent += packet.header.length;
+            auto bytes_sent = Device->Write(socket, (BYTE*) &packet, packet.header.length);
+            
+            if(bytes_sent != packet.header.length)
+            {
+                status = PACKET_FAILURE;
+            }
+            total_bytes_sent += bytes_sent;
         }
         
         return status == STATUS_OK ? PACKET_SUCCESS : PACKET_FAILURE;
@@ -72,7 +76,7 @@ namespace ChatLib
         PACKET_STATUS status = PACKET_SUCCESS;
         bool found_packet = false;
         
-        RecBufEnd += Device->Read(socket, &ReceivedBuffer[RecBufStart], 1000);
+        RecBufEnd += Device->Read(socket, &ReceivedBuffer[RecBufStart], MAX_PACKET_SIZE);
         
         do
         {

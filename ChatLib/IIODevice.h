@@ -22,10 +22,9 @@ namespace ChatLib
             IIODevice();
             ~IIODevice();
             
-            // Each IO device must try to read/write to given byte size and return error if fail
-            virtual STATUS Read(SINT fd, BYTE* buffer, UINT byte_size) const = 0;
+            virtual SINT Read(SINT fd, BYTE* buffer, UINT byte_size) const = 0;
             
-            virtual STATUS Write(SINT fd, const BYTE* buffer, UINT byte_size) const = 0;
+            virtual SINT Write(SINT fd, const BYTE* buffer, UINT byte_size) const = 0;
         };
     }
 }

@@ -18,7 +18,6 @@
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <sys/wait.h>
-#include <signal.h>
 
 namespace ChatLib
 {
@@ -34,7 +33,7 @@ namespace ChatLib
         info.ai_socktype = SOCK_STREAM;
         info.ai_flags = AI_PASSIVE;
         
-        //FD_ZERO(&Connection.SocketSet);
+        FD_ZERO(&Connection.SocketSet);
         
         if ( (rv = getaddrinfo(NULL, Connection.Port, &info, &servinfo) != 0))
         {
@@ -64,6 +63,8 @@ namespace ChatLib
             }
             
             freeaddrinfo(servinfo);
+            
+            
             
             if(cur_sock == NULL)
             {
@@ -97,40 +98,14 @@ namespace ChatLib
         return STATUS_ERROR;
     }
     
-    STATUS TcpDevice::Read(SINT fd, BYTE* buffer, UINT byte_size) const
+    SINT TcpDevice::Read(SINT fd, BYTE* buffer, UINT byte_size) const
     {
-        SINT bytes_read = 0;
-        UINT total_bytes = 0;
-        
-        do
-        {
-            bytes_read = recv(Connection.InputSocket, &buffer[total_bytes], byte_size - total_bytes, 0);
-            
-            if(bytes_read > 0)
-            {
-                total_bytes += bytes_read;
-            }
-        }while( total_bytes < byte_size && bytes_read > 0);
-        
-        return total_bytes == byte_size ? STATUS_OK : STATUS_ERROR;
+        return recv(Connection.InputSocket, buffer, byte_size , 0);
     }
     
-    STATUS TcpDevice::Write(SINT fd, const BYTE* buffer, UINT byte_size) const
+    SINT TcpDevice::Write(SINT fd, const BYTE* buffer, UINT byte_size) const
     {
-        SINT bytes_written = 0;
-        UINT total_bytes = byte_size;
-        
-        do
-        {
-            bytes_written = send(Connection.InputSocket, &buffer[byte_size - total_bytes], total_bytes, 0);
-            
-            if(bytes_written > 0)
-            {
-                total_bytes -= bytes_written;
-            }
-        }while ( total_bytes > 0 && bytes_written > 0);
-        
-        return total_bytes == 0 ? STATUS_OK : STATUS_ERROR;
+        return send(Connection.InputSocket, buffer, byte_size, 0);
     }
 
 }

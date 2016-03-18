@@ -46,9 +46,9 @@ namespace ChatLib
         
         STATUS Disconnect();
         
-        virtual STATUS Read(SINT fd, BYTE* buffer, UINT byte_size) const;
+        virtual SINT Read(SINT fd, BYTE* buffer, UINT byte_size) const;
         
-        virtual STATUS Write(SINT fd, const BYTE* buffer, UINT byte_size) const;
+        virtual SINT Write(SINT fd, const BYTE* buffer, UINT byte_size) const;
         
         
     private:

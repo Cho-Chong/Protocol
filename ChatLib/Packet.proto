@@ -1,0 +1,52 @@
+
+message Packet
+{
+message PacketBody
+{
+    repeated uint32 buffer = 1;
+}
+
+message PacketHeader
+{
+    enum CmdType
+    {
+    CREATE = 1;
+    READ = 2;
+    UPDATE = 3;
+    DELETE = 4;
+    }
+
+    enum FormatType
+    {
+    BINARY = 1;
+    ASCII = 2;
+    }
+
+    enum PacketStatus
+    {
+    RETRIEVED = 1;
+    CONTINUE = 2;
+    }
+
+    enum TransmitType
+    {
+    DIRECT = 0;
+    BROADCAST = 1;
+    }
+
+    required uint32 id = 1 [default = 0];
+    required CmdType cmd = 2 [default = CREATE];
+    required FormatType format = 3 [default = BINARY];
+    required PacketStatus status = 4 [default = RETRIEVED];
+    required TransmitType transmit = 5 [default = DIRECT];
+
+    required uint32 packetNum = 6;
+    required uint32 totalPackets = 7;
+
+
+
+}
+
+required PacketHeader header = 1;
+optional PacketBody body = 2;
+}
