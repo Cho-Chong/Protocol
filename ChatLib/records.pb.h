@@ -26,12 +26,18 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
+namespace Butters {
+namespace Model {
+
 // Internal implementation detail -- do not call these.
 void  protobuf_AddDesc_records_2eproto();
 void protobuf_AssignDesc_records_2eproto();
 void protobuf_ShutdownFile_records_2eproto();
 
 class Record;
+class System;
+class Unit;
+class PID;
 
 // ===================================================================
 
@@ -102,12 +108,45 @@ class Record : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 test() const;
   inline void set_test(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:Record)
+  // optional .Butters.Model.System system = 3;
+  inline bool has_system() const;
+  inline void clear_system();
+  static const int kSystemFieldNumber = 3;
+  inline const ::Butters::Model::System& system() const;
+  inline ::Butters::Model::System* mutable_system();
+  inline ::Butters::Model::System* release_system();
+  inline void set_allocated_system(::Butters::Model::System* system);
+
+  // optional .Butters.Model.PID pid = 4;
+  inline bool has_pid() const;
+  inline void clear_pid();
+  static const int kPidFieldNumber = 4;
+  inline const ::Butters::Model::PID& pid() const;
+  inline ::Butters::Model::PID* mutable_pid();
+  inline ::Butters::Model::PID* release_pid();
+  inline void set_allocated_pid(::Butters::Model::PID* pid);
+
+  // optional .Butters.Model.Unit unit = 5;
+  inline bool has_unit() const;
+  inline void clear_unit();
+  static const int kUnitFieldNumber = 5;
+  inline const ::Butters::Model::Unit& unit() const;
+  inline ::Butters::Model::Unit* mutable_unit();
+  inline ::Butters::Model::Unit* release_unit();
+  inline void set_allocated_unit(::Butters::Model::Unit* unit);
+
+  // @@protoc_insertion_point(class_scope:Butters.Model.Record)
  private:
   inline void set_has_id();
   inline void clear_has_id();
   inline void set_has_test();
   inline void clear_has_test();
+  inline void set_has_system();
+  inline void clear_has_system();
+  inline void set_has_pid();
+  inline void clear_has_pid();
+  inline void set_has_unit();
+  inline void clear_has_unit();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -115,12 +154,292 @@ class Record : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::int32 id_;
   ::google::protobuf::int32 test_;
+  ::Butters::Model::System* system_;
+  ::Butters::Model::PID* pid_;
+  ::Butters::Model::Unit* unit_;
   friend void  protobuf_AddDesc_records_2eproto();
   friend void protobuf_AssignDesc_records_2eproto();
   friend void protobuf_ShutdownFile_records_2eproto();
 
   void InitAsDefaultInstance();
   static Record* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class System : public ::google::protobuf::Message {
+ public:
+  System();
+  virtual ~System();
+
+  System(const System& from);
+
+  inline System& operator=(const System& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const System& default_instance();
+
+  void Swap(System* other);
+
+  // implements Message ----------------------------------------------
+
+  System* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const System& from);
+  void MergeFrom(const System& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 minor = 1;
+  inline bool has_minor() const;
+  inline void clear_minor();
+  static const int kMinorFieldNumber = 1;
+  inline ::google::protobuf::int32 minor() const;
+  inline void set_minor(::google::protobuf::int32 value);
+
+  // required int32 major = 2;
+  inline bool has_major() const;
+  inline void clear_major();
+  static const int kMajorFieldNumber = 2;
+  inline ::google::protobuf::int32 major() const;
+  inline void set_major(::google::protobuf::int32 value);
+
+  // required int32 build_num = 3;
+  inline bool has_build_num() const;
+  inline void clear_build_num();
+  static const int kBuildNumFieldNumber = 3;
+  inline ::google::protobuf::int32 build_num() const;
+  inline void set_build_num(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:Butters.Model.System)
+ private:
+  inline void set_has_minor();
+  inline void clear_has_minor();
+  inline void set_has_major();
+  inline void clear_has_major();
+  inline void set_has_build_num();
+  inline void clear_has_build_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 minor_;
+  ::google::protobuf::int32 major_;
+  ::google::protobuf::int32 build_num_;
+  friend void  protobuf_AddDesc_records_2eproto();
+  friend void protobuf_AssignDesc_records_2eproto();
+  friend void protobuf_ShutdownFile_records_2eproto();
+
+  void InitAsDefaultInstance();
+  static System* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Unit : public ::google::protobuf::Message {
+ public:
+  Unit();
+  virtual ~Unit();
+
+  Unit(const Unit& from);
+
+  inline Unit& operator=(const Unit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Unit& default_instance();
+
+  void Swap(Unit* other);
+
+  // implements Message ----------------------------------------------
+
+  Unit* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Unit& from);
+  void MergeFrom(const Unit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required float ScaleFactor = 1;
+  inline bool has_scalefactor() const;
+  inline void clear_scalefactor();
+  static const int kScaleFactorFieldNumber = 1;
+  inline float scalefactor() const;
+  inline void set_scalefactor(float value);
+
+  // @@protoc_insertion_point(class_scope:Butters.Model.Unit)
+ private:
+  inline void set_has_scalefactor();
+  inline void clear_has_scalefactor();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  float scalefactor_;
+  friend void  protobuf_AddDesc_records_2eproto();
+  friend void protobuf_AssignDesc_records_2eproto();
+  friend void protobuf_ShutdownFile_records_2eproto();
+
+  void InitAsDefaultInstance();
+  static Unit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PID : public ::google::protobuf::Message {
+ public:
+  PID();
+  virtual ~PID();
+
+  PID(const PID& from);
+
+  inline PID& operator=(const PID& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PID& default_instance();
+
+  void Swap(PID* other);
+
+  // implements Message ----------------------------------------------
+
+  PID* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PID& from);
+  void MergeFrom(const PID& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional float PropGain = 1;
+  inline bool has_propgain() const;
+  inline void clear_propgain();
+  static const int kPropGainFieldNumber = 1;
+  inline float propgain() const;
+  inline void set_propgain(float value);
+
+  // optional float DerivGain = 2;
+  inline bool has_derivgain() const;
+  inline void clear_derivgain();
+  static const int kDerivGainFieldNumber = 2;
+  inline float derivgain() const;
+  inline void set_derivgain(float value);
+
+  // optional float IntergralGain = 3;
+  inline bool has_intergralgain() const;
+  inline void clear_intergralgain();
+  static const int kIntergralGainFieldNumber = 3;
+  inline float intergralgain() const;
+  inline void set_intergralgain(float value);
+
+  // @@protoc_insertion_point(class_scope:Butters.Model.PID)
+ private:
+  inline void set_has_propgain();
+  inline void clear_has_propgain();
+  inline void set_has_derivgain();
+  inline void clear_has_derivgain();
+  inline void set_has_intergralgain();
+  inline void clear_has_intergralgain();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  float propgain_;
+  float derivgain_;
+  float intergralgain_;
+  friend void  protobuf_AddDesc_records_2eproto();
+  friend void protobuf_AssignDesc_records_2eproto();
+  friend void protobuf_ShutdownFile_records_2eproto();
+
+  void InitAsDefaultInstance();
+  static PID* default_instance_;
 };
 // ===================================================================
 
@@ -144,13 +463,13 @@ inline void Record::clear_id() {
   clear_has_id();
 }
 inline ::google::protobuf::int32 Record::id() const {
-  // @@protoc_insertion_point(field_get:Record.id)
+  // @@protoc_insertion_point(field_get:Butters.Model.Record.id)
   return id_;
 }
 inline void Record::set_id(::google::protobuf::int32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:Record.id)
+  // @@protoc_insertion_point(field_set:Butters.Model.Record.id)
 }
 
 // required int32 test = 2;
@@ -168,17 +487,323 @@ inline void Record::clear_test() {
   clear_has_test();
 }
 inline ::google::protobuf::int32 Record::test() const {
-  // @@protoc_insertion_point(field_get:Record.test)
+  // @@protoc_insertion_point(field_get:Butters.Model.Record.test)
   return test_;
 }
 inline void Record::set_test(::google::protobuf::int32 value) {
   set_has_test();
   test_ = value;
-  // @@protoc_insertion_point(field_set:Record.test)
+  // @@protoc_insertion_point(field_set:Butters.Model.Record.test)
+}
+
+// optional .Butters.Model.System system = 3;
+inline bool Record::has_system() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Record::set_has_system() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Record::clear_has_system() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Record::clear_system() {
+  if (system_ != NULL) system_->::Butters::Model::System::Clear();
+  clear_has_system();
+}
+inline const ::Butters::Model::System& Record::system() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.Record.system)
+  return system_ != NULL ? *system_ : *default_instance_->system_;
+}
+inline ::Butters::Model::System* Record::mutable_system() {
+  set_has_system();
+  if (system_ == NULL) system_ = new ::Butters::Model::System;
+  // @@protoc_insertion_point(field_mutable:Butters.Model.Record.system)
+  return system_;
+}
+inline ::Butters::Model::System* Record::release_system() {
+  clear_has_system();
+  ::Butters::Model::System* temp = system_;
+  system_ = NULL;
+  return temp;
+}
+inline void Record::set_allocated_system(::Butters::Model::System* system) {
+  delete system_;
+  system_ = system;
+  if (system) {
+    set_has_system();
+  } else {
+    clear_has_system();
+  }
+  // @@protoc_insertion_point(field_set_allocated:Butters.Model.Record.system)
+}
+
+// optional .Butters.Model.PID pid = 4;
+inline bool Record::has_pid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Record::set_has_pid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Record::clear_has_pid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Record::clear_pid() {
+  if (pid_ != NULL) pid_->::Butters::Model::PID::Clear();
+  clear_has_pid();
+}
+inline const ::Butters::Model::PID& Record::pid() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.Record.pid)
+  return pid_ != NULL ? *pid_ : *default_instance_->pid_;
+}
+inline ::Butters::Model::PID* Record::mutable_pid() {
+  set_has_pid();
+  if (pid_ == NULL) pid_ = new ::Butters::Model::PID;
+  // @@protoc_insertion_point(field_mutable:Butters.Model.Record.pid)
+  return pid_;
+}
+inline ::Butters::Model::PID* Record::release_pid() {
+  clear_has_pid();
+  ::Butters::Model::PID* temp = pid_;
+  pid_ = NULL;
+  return temp;
+}
+inline void Record::set_allocated_pid(::Butters::Model::PID* pid) {
+  delete pid_;
+  pid_ = pid;
+  if (pid) {
+    set_has_pid();
+  } else {
+    clear_has_pid();
+  }
+  // @@protoc_insertion_point(field_set_allocated:Butters.Model.Record.pid)
+}
+
+// optional .Butters.Model.Unit unit = 5;
+inline bool Record::has_unit() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Record::set_has_unit() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Record::clear_has_unit() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Record::clear_unit() {
+  if (unit_ != NULL) unit_->::Butters::Model::Unit::Clear();
+  clear_has_unit();
+}
+inline const ::Butters::Model::Unit& Record::unit() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.Record.unit)
+  return unit_ != NULL ? *unit_ : *default_instance_->unit_;
+}
+inline ::Butters::Model::Unit* Record::mutable_unit() {
+  set_has_unit();
+  if (unit_ == NULL) unit_ = new ::Butters::Model::Unit;
+  // @@protoc_insertion_point(field_mutable:Butters.Model.Record.unit)
+  return unit_;
+}
+inline ::Butters::Model::Unit* Record::release_unit() {
+  clear_has_unit();
+  ::Butters::Model::Unit* temp = unit_;
+  unit_ = NULL;
+  return temp;
+}
+inline void Record::set_allocated_unit(::Butters::Model::Unit* unit) {
+  delete unit_;
+  unit_ = unit;
+  if (unit) {
+    set_has_unit();
+  } else {
+    clear_has_unit();
+  }
+  // @@protoc_insertion_point(field_set_allocated:Butters.Model.Record.unit)
+}
+
+// -------------------------------------------------------------------
+
+// System
+
+// required int32 minor = 1;
+inline bool System::has_minor() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void System::set_has_minor() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void System::clear_has_minor() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void System::clear_minor() {
+  minor_ = 0;
+  clear_has_minor();
+}
+inline ::google::protobuf::int32 System::minor() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.System.minor)
+  return minor_;
+}
+inline void System::set_minor(::google::protobuf::int32 value) {
+  set_has_minor();
+  minor_ = value;
+  // @@protoc_insertion_point(field_set:Butters.Model.System.minor)
+}
+
+// required int32 major = 2;
+inline bool System::has_major() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void System::set_has_major() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void System::clear_has_major() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void System::clear_major() {
+  major_ = 0;
+  clear_has_major();
+}
+inline ::google::protobuf::int32 System::major() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.System.major)
+  return major_;
+}
+inline void System::set_major(::google::protobuf::int32 value) {
+  set_has_major();
+  major_ = value;
+  // @@protoc_insertion_point(field_set:Butters.Model.System.major)
+}
+
+// required int32 build_num = 3;
+inline bool System::has_build_num() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void System::set_has_build_num() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void System::clear_has_build_num() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void System::clear_build_num() {
+  build_num_ = 0;
+  clear_has_build_num();
+}
+inline ::google::protobuf::int32 System::build_num() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.System.build_num)
+  return build_num_;
+}
+inline void System::set_build_num(::google::protobuf::int32 value) {
+  set_has_build_num();
+  build_num_ = value;
+  // @@protoc_insertion_point(field_set:Butters.Model.System.build_num)
+}
+
+// -------------------------------------------------------------------
+
+// Unit
+
+// required float ScaleFactor = 1;
+inline bool Unit::has_scalefactor() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Unit::set_has_scalefactor() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Unit::clear_has_scalefactor() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Unit::clear_scalefactor() {
+  scalefactor_ = 0;
+  clear_has_scalefactor();
+}
+inline float Unit::scalefactor() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.Unit.ScaleFactor)
+  return scalefactor_;
+}
+inline void Unit::set_scalefactor(float value) {
+  set_has_scalefactor();
+  scalefactor_ = value;
+  // @@protoc_insertion_point(field_set:Butters.Model.Unit.ScaleFactor)
+}
+
+// -------------------------------------------------------------------
+
+// PID
+
+// optional float PropGain = 1;
+inline bool PID::has_propgain() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PID::set_has_propgain() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PID::clear_has_propgain() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PID::clear_propgain() {
+  propgain_ = 0;
+  clear_has_propgain();
+}
+inline float PID::propgain() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PID.PropGain)
+  return propgain_;
+}
+inline void PID::set_propgain(float value) {
+  set_has_propgain();
+  propgain_ = value;
+  // @@protoc_insertion_point(field_set:Butters.Model.PID.PropGain)
+}
+
+// optional float DerivGain = 2;
+inline bool PID::has_derivgain() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PID::set_has_derivgain() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PID::clear_has_derivgain() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PID::clear_derivgain() {
+  derivgain_ = 0;
+  clear_has_derivgain();
+}
+inline float PID::derivgain() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PID.DerivGain)
+  return derivgain_;
+}
+inline void PID::set_derivgain(float value) {
+  set_has_derivgain();
+  derivgain_ = value;
+  // @@protoc_insertion_point(field_set:Butters.Model.PID.DerivGain)
+}
+
+// optional float IntergralGain = 3;
+inline bool PID::has_intergralgain() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PID::set_has_intergralgain() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PID::clear_has_intergralgain() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PID::clear_intergralgain() {
+  intergralgain_ = 0;
+  clear_has_intergralgain();
+}
+inline float PID::intergralgain() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PID.IntergralGain)
+  return intergralgain_;
+}
+inline void PID::set_intergralgain(float value) {
+  set_has_intergralgain();
+  intergralgain_ = value;
+  // @@protoc_insertion_point(field_set:Butters.Model.PID.IntergralGain)
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
+
+}  // namespace Model
+}  // namespace Butters
 
 #ifndef SWIG
 namespace google {

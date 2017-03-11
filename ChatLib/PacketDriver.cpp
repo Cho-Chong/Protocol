@@ -16,8 +16,9 @@
 namespace ChatLib
 {
     
-    PacketDriver::PacketDriver() : RecBufStart(0),
-                                             RecBufEnd(0)
+    PacketDriver::PacketDriver(Interface::IIODevice* iodevice) : RecBufStart(0),
+                                             RecBufEnd(0),
+                                             Device(iodevice)
     {
     }
     
@@ -60,7 +61,6 @@ namespace ChatLib
             auto packet = this->OutgoingPackets[socket].front();
             this->OutgoingPackets[socket].pop();
             auto bytes_sent = Device->Write(socket, (BYTE*) &packet, packet.header.length);
-            
             if(bytes_sent != packet.header.length)
             {
                 status = PACKET_FAILURE;
@@ -76,7 +76,17 @@ namespace ChatLib
         PACKET_STATUS status = PACKET_SUCCESS;
         bool found_packet = false;
         
-        RecBufEnd += Device->Read(socket, &ReceivedBuffer[RecBufStart], MAX_PACKET_SIZE);
+        auto bytes_read = Device->Read(socket, &ReceivedBuffer[RecBufStart], MAX_PACKET_SIZE);
+        
+        if(bytes_read > 0)
+        {
+            RecBufEnd += bytes_read;
+        }
+        else
+        {
+            //TODO: socket bad. need to notify
+            status = PACKET_FAILURE;
+        }
         
         do
         {

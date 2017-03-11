@@ -31,7 +31,7 @@ namespace ChatLib
     class PacketDriver
     {
     public:
-        PacketDriver();
+        PacketDriver(Interface::IIODevice* iodevice);
         ~PacketDriver();
         
         void QueuePacket(int socket, const PACKET_T& packet);

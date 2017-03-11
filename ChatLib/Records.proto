@@ -1,5 +1,31 @@
+package Butters.Model;
+
 message Record
 {
 required int32 id = 1;
 required int32 test = 2;
+optional System system = 3;
+optional PID pid = 4;
+optional Unit unit = 5;
+
 }
+
+message System
+{
+required int32 minor = 1;
+required int32 major = 2;
+required int32 build_num = 3;
+}
+
+message Unit
+{
+required float ScaleFactor = 1;
+}
+
+message PID
+{
+optional float PropGain = 1;
+optional float DerivGain = 2;
+optional float IntergralGain = 3;
+}
+

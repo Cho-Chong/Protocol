@@ -19,8 +19,8 @@ namespace ChatLib
         class IIODevice
         {
         public:
-            IIODevice();
-            ~IIODevice();
+            IIODevice() {}
+            ~IIODevice() {}
             
             virtual SINT Read(SINT fd, BYTE* buffer, UINT byte_size) const = 0;
             

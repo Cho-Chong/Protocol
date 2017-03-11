@@ -1,10 +1,4 @@
-
-message Packet
-{
-message PacketBody
-{
-    repeated uint32 buffer = 1;
-}
+package Butters.Model;
 
 message PacketHeader
 {
@@ -26,6 +20,7 @@ message PacketHeader
     {
     RETRIEVED = 1;
     CONTINUE = 2;
+    ERROR = 3;
     }
 
     enum TransmitType
@@ -36,17 +31,13 @@ message PacketHeader
 
     required uint32 id = 1 [default = 0];
     required CmdType cmd = 2 [default = CREATE];
-    required FormatType format = 3 [default = BINARY];
-    required PacketStatus status = 4 [default = RETRIEVED];
-    required TransmitType transmit = 5 [default = DIRECT];
+    required uint32 length = 3 [default = 0];
+    required FormatType format = 4 [default = BINARY];
+    required PacketStatus status = 5 [default = RETRIEVED];
+    required TransmitType transmit = 6 [default = DIRECT];
+    required uint32 packetNum = 7;
+    required uint32 totalPackets = 8;
+    required uint32 bodyCrc = 9;
+    required uint32 headerCrc = 10;
 
-    required uint32 packetNum = 6;
-    required uint32 totalPackets = 7;
-
-
-
-}
-
-required PacketHeader header = 1;
-optional PacketBody body = 2;
 }

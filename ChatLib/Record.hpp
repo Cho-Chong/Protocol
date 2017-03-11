@@ -57,6 +57,7 @@ namespace Model
         void SetUserId(const ID_T& id) { UserId = id; }
         char Entry[MAX_ENTRY_SIZE];
         int  GetTime() const { return Timestamp.Ticks; }
+        void SetTime(const int &ticks) {Timestamp.Ticks = ticks;}
     private:
         TIMESTAMP_T Timestamp;
         ID_T UserId;

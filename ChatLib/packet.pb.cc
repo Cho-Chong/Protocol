@@ -16,21 +16,18 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
+namespace Butters {
+namespace Model {
+
 namespace {
 
-const ::google::protobuf::Descriptor* Packet_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* PacketHeader_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Packet_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Packet_PacketBody_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Packet_PacketBody_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Packet_PacketHeader_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Packet_PacketHeader_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_CmdType_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_FormatType_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_PacketStatus_descriptor_ = NULL;
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_TransmitType_descriptor_ = NULL;
+  PacketHeader_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* PacketHeader_CmdType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* PacketHeader_FormatType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* PacketHeader_PacketStatus_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* PacketHeader_TransmitType_descriptor_ = NULL;
 
 }  // namespace
 
@@ -41,62 +38,34 @@ void protobuf_AssignDesc_packet_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "packet.proto");
   GOOGLE_CHECK(file != NULL);
-  Packet_descriptor_ = file->message_type(0);
-  static const int Packet_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet, header_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet, body_),
+  PacketHeader_descriptor_ = file->message_type(0);
+  static const int PacketHeader_offsets_[10] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, cmd_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, length_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, format_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, status_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, transmit_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, packetnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, totalpackets_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, bodycrc_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, headercrc_),
   };
-  Packet_reflection_ =
+  PacketHeader_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Packet_descriptor_,
-      Packet::default_instance_,
-      Packet_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet, _unknown_fields_),
+      PacketHeader_descriptor_,
+      PacketHeader::default_instance_,
+      PacketHeader_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PacketHeader, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Packet));
-  Packet_PacketBody_descriptor_ = Packet_descriptor_->nested_type(0);
-  static const int Packet_PacketBody_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketBody, buffer_),
-  };
-  Packet_PacketBody_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Packet_PacketBody_descriptor_,
-      Packet_PacketBody::default_instance_,
-      Packet_PacketBody_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketBody, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketBody, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Packet_PacketBody));
-  Packet_PacketHeader_descriptor_ = Packet_descriptor_->nested_type(1);
-  static const int Packet_PacketHeader_offsets_[7] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketHeader, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketHeader, cmd_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketHeader, format_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketHeader, status_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketHeader, transmit_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketHeader, packetnum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketHeader, totalpackets_),
-  };
-  Packet_PacketHeader_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Packet_PacketHeader_descriptor_,
-      Packet_PacketHeader::default_instance_,
-      Packet_PacketHeader_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketHeader, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Packet_PacketHeader, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Packet_PacketHeader));
-  Packet_PacketHeader_CmdType_descriptor_ = Packet_PacketHeader_descriptor_->enum_type(0);
-  Packet_PacketHeader_FormatType_descriptor_ = Packet_PacketHeader_descriptor_->enum_type(1);
-  Packet_PacketHeader_PacketStatus_descriptor_ = Packet_PacketHeader_descriptor_->enum_type(2);
-  Packet_PacketHeader_TransmitType_descriptor_ = Packet_PacketHeader_descriptor_->enum_type(3);
+      sizeof(PacketHeader));
+  PacketHeader_CmdType_descriptor_ = PacketHeader_descriptor_->enum_type(0);
+  PacketHeader_FormatType_descriptor_ = PacketHeader_descriptor_->enum_type(1);
+  PacketHeader_PacketStatus_descriptor_ = PacketHeader_descriptor_->enum_type(2);
+  PacketHeader_TransmitType_descriptor_ = PacketHeader_descriptor_->enum_type(3);
 }
 
 namespace {
@@ -110,22 +79,14 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Packet_descriptor_, &Packet::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Packet_PacketBody_descriptor_, &Packet_PacketBody::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Packet_PacketHeader_descriptor_, &Packet_PacketHeader::default_instance());
+    PacketHeader_descriptor_, &PacketHeader::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_packet_2eproto() {
-  delete Packet::default_instance_;
-  delete Packet_reflection_;
-  delete Packet_PacketBody::default_instance_;
-  delete Packet_PacketBody_reflection_;
-  delete Packet_PacketHeader::default_instance_;
-  delete Packet_PacketHeader_reflection_;
+  delete PacketHeader::default_instance_;
+  delete PacketHeader_reflection_;
 }
 
 void protobuf_AddDesc_packet_2eproto() {
@@ -135,30 +96,26 @@ void protobuf_AddDesc_packet_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014packet.proto\"\324\004\n\006Packet\022$\n\006header\030\001 \002("
-    "\0132\024.Packet.PacketHeader\022 \n\004body\030\002 \001(\0132\022."
-    "Packet.PacketBody\032\034\n\nPacketBody\022\016\n\006buffe"
-    "r\030\001 \003(\r\032\343\003\n\014PacketHeader\022\r\n\002id\030\001 \002(\r:\0010\022"
-    "1\n\003cmd\030\002 \002(\0162\034.Packet.PacketHeader.CmdTy"
-    "pe:\006CREATE\0227\n\006format\030\003 \002(\0162\037.Packet.Pack"
-    "etHeader.FormatType:\006BINARY\022<\n\006status\030\004 "
-    "\002(\0162!.Packet.PacketHeader.PacketStatus:\t"
-    "RETRIEVED\022;\n\010transmit\030\005 \002(\0162!.Packet.Pac"
-    "ketHeader.TransmitType:\006DIRECT\022\021\n\tpacket"
-    "Num\030\006 \002(\r\022\024\n\014totalPackets\030\007 \002(\r\"7\n\007CmdTy"
-    "pe\022\n\n\006CREATE\020\001\022\010\n\004READ\020\002\022\n\n\006UPDATE\020\003\022\n\n\006"
-    "DELETE\020\004\"#\n\nFormatType\022\n\n\006BINARY\020\001\022\t\n\005AS"
-    "CII\020\002\"+\n\014PacketStatus\022\r\n\tRETRIEVED\020\001\022\014\n\010"
-    "CONTINUE\020\002\")\n\014TransmitType\022\n\n\006DIRECT\020\000\022\r"
-    "\n\tBROADCAST\020\001", 613);
+    "\n\014packet.proto\022\rButters.Model\"\301\004\n\014Packet"
+    "Header\022\r\n\002id\030\001 \002(\r:\0010\0228\n\003cmd\030\002 \002(\0162#.But"
+    "ters.Model.PacketHeader.CmdType:\006CREATE\022"
+    "\021\n\006length\030\003 \002(\r:\0010\022>\n\006format\030\004 \002(\0162&.But"
+    "ters.Model.PacketHeader.FormatType:\006BINA"
+    "RY\022C\n\006status\030\005 \002(\0162(.Butters.Model.Packe"
+    "tHeader.PacketStatus:\tRETRIEVED\022B\n\010trans"
+    "mit\030\006 \002(\0162(.Butters.Model.PacketHeader.T"
+    "ransmitType:\006DIRECT\022\021\n\tpacketNum\030\007 \002(\r\022\024"
+    "\n\014totalPackets\030\010 \002(\r\022\017\n\007bodyCrc\030\t \002(\r\022\021\n"
+    "\theaderCrc\030\n \002(\r\"7\n\007CmdType\022\n\n\006CREATE\020\001\022"
+    "\010\n\004READ\020\002\022\n\n\006UPDATE\020\003\022\n\n\006DELETE\020\004\"#\n\nFor"
+    "matType\022\n\n\006BINARY\020\001\022\t\n\005ASCII\020\002\"6\n\014Packet"
+    "Status\022\r\n\tRETRIEVED\020\001\022\014\n\010CONTINUE\020\002\022\t\n\005E"
+    "RROR\020\003\")\n\014TransmitType\022\n\n\006DIRECT\020\000\022\r\n\tBR"
+    "OADCAST\020\001", 609);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "packet.proto", &protobuf_RegisterTypes);
-  Packet::default_instance_ = new Packet();
-  Packet_PacketBody::default_instance_ = new Packet_PacketBody();
-  Packet_PacketHeader::default_instance_ = new Packet_PacketHeader();
-  Packet::default_instance_->InitAsDefaultInstance();
-  Packet_PacketBody::default_instance_->InitAsDefaultInstance();
-  Packet_PacketHeader::default_instance_->InitAsDefaultInstance();
+  PacketHeader::default_instance_ = new PacketHeader();
+  PacketHeader::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_packet_2eproto);
 }
 
@@ -171,236 +128,11 @@ struct StaticDescriptorInitializer_packet_2eproto {
 
 // ===================================================================
 
-#ifndef _MSC_VER
-const int Packet_PacketBody::kBufferFieldNumber;
-#endif  // !_MSC_VER
-
-Packet_PacketBody::Packet_PacketBody()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:Packet.PacketBody)
-}
-
-void Packet_PacketBody::InitAsDefaultInstance() {
-}
-
-Packet_PacketBody::Packet_PacketBody(const Packet_PacketBody& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Packet.PacketBody)
-}
-
-void Packet_PacketBody::SharedCtor() {
-  _cached_size_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Packet_PacketBody::~Packet_PacketBody() {
-  // @@protoc_insertion_point(destructor:Packet.PacketBody)
-  SharedDtor();
-}
-
-void Packet_PacketBody::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void Packet_PacketBody::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Packet_PacketBody::descriptor() {
+const ::google::protobuf::EnumDescriptor* PacketHeader_CmdType_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Packet_PacketBody_descriptor_;
+  return PacketHeader_CmdType_descriptor_;
 }
-
-const Packet_PacketBody& Packet_PacketBody::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_packet_2eproto();
-  return *default_instance_;
-}
-
-Packet_PacketBody* Packet_PacketBody::default_instance_ = NULL;
-
-Packet_PacketBody* Packet_PacketBody::New() const {
-  return new Packet_PacketBody;
-}
-
-void Packet_PacketBody::Clear() {
-  buffer_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Packet_PacketBody::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Packet.PacketBody)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated uint32 buffer = 1;
-      case 1: {
-        if (tag == 8) {
-         parse_buffer:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 1, 8, input, this->mutable_buffer())));
-        } else if (tag == 10) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, this->mutable_buffer())));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(8)) goto parse_buffer;
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:Packet.PacketBody)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:Packet.PacketBody)
-  return false;
-#undef DO_
-}
-
-void Packet_PacketBody::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Packet.PacketBody)
-  // repeated uint32 buffer = 1;
-  for (int i = 0; i < this->buffer_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(
-      1, this->buffer(i), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:Packet.PacketBody)
-}
-
-::google::protobuf::uint8* Packet_PacketBody::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Packet.PacketBody)
-  // repeated uint32 buffer = 1;
-  for (int i = 0; i < this->buffer_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteUInt32ToArray(1, this->buffer(i), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:Packet.PacketBody)
-  return target;
-}
-
-int Packet_PacketBody::ByteSize() const {
-  int total_size = 0;
-
-  // repeated uint32 buffer = 1;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->buffer_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        UInt32Size(this->buffer(i));
-    }
-    total_size += 1 * this->buffer_size() + data_size;
-  }
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Packet_PacketBody::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Packet_PacketBody* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Packet_PacketBody*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Packet_PacketBody::MergeFrom(const Packet_PacketBody& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  buffer_.MergeFrom(from.buffer_);
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Packet_PacketBody::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Packet_PacketBody::CopyFrom(const Packet_PacketBody& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Packet_PacketBody::IsInitialized() const {
-
-  return true;
-}
-
-void Packet_PacketBody::Swap(Packet_PacketBody* other) {
-  if (other != this) {
-    buffer_.Swap(&other->buffer_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Packet_PacketBody::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Packet_PacketBody_descriptor_;
-  metadata.reflection = Packet_PacketBody_reflection_;
-  return metadata;
-}
-
-
-// -------------------------------------------------------------------
-
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_CmdType_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Packet_PacketHeader_CmdType_descriptor_;
-}
-bool Packet_PacketHeader_CmdType_IsValid(int value) {
+bool PacketHeader_CmdType_IsValid(int value) {
   switch(value) {
     case 1:
     case 2:
@@ -413,19 +145,19 @@ bool Packet_PacketHeader_CmdType_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
-const Packet_PacketHeader_CmdType Packet_PacketHeader::CREATE;
-const Packet_PacketHeader_CmdType Packet_PacketHeader::READ;
-const Packet_PacketHeader_CmdType Packet_PacketHeader::UPDATE;
-const Packet_PacketHeader_CmdType Packet_PacketHeader::DELETE;
-const Packet_PacketHeader_CmdType Packet_PacketHeader::CmdType_MIN;
-const Packet_PacketHeader_CmdType Packet_PacketHeader::CmdType_MAX;
-const int Packet_PacketHeader::CmdType_ARRAYSIZE;
+const PacketHeader_CmdType PacketHeader::CREATE;
+const PacketHeader_CmdType PacketHeader::READ;
+const PacketHeader_CmdType PacketHeader::UPDATE;
+const PacketHeader_CmdType PacketHeader::DELETE;
+const PacketHeader_CmdType PacketHeader::CmdType_MIN;
+const PacketHeader_CmdType PacketHeader::CmdType_MAX;
+const int PacketHeader::CmdType_ARRAYSIZE;
 #endif  // _MSC_VER
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_FormatType_descriptor() {
+const ::google::protobuf::EnumDescriptor* PacketHeader_FormatType_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Packet_PacketHeader_FormatType_descriptor_;
+  return PacketHeader_FormatType_descriptor_;
 }
-bool Packet_PacketHeader_FormatType_IsValid(int value) {
+bool PacketHeader_FormatType_IsValid(int value) {
   switch(value) {
     case 1:
     case 2:
@@ -436,20 +168,21 @@ bool Packet_PacketHeader_FormatType_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
-const Packet_PacketHeader_FormatType Packet_PacketHeader::BINARY;
-const Packet_PacketHeader_FormatType Packet_PacketHeader::ASCII;
-const Packet_PacketHeader_FormatType Packet_PacketHeader::FormatType_MIN;
-const Packet_PacketHeader_FormatType Packet_PacketHeader::FormatType_MAX;
-const int Packet_PacketHeader::FormatType_ARRAYSIZE;
+const PacketHeader_FormatType PacketHeader::BINARY;
+const PacketHeader_FormatType PacketHeader::ASCII;
+const PacketHeader_FormatType PacketHeader::FormatType_MIN;
+const PacketHeader_FormatType PacketHeader::FormatType_MAX;
+const int PacketHeader::FormatType_ARRAYSIZE;
 #endif  // _MSC_VER
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_PacketStatus_descriptor() {
+const ::google::protobuf::EnumDescriptor* PacketHeader_PacketStatus_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Packet_PacketHeader_PacketStatus_descriptor_;
+  return PacketHeader_PacketStatus_descriptor_;
 }
-bool Packet_PacketHeader_PacketStatus_IsValid(int value) {
+bool PacketHeader_PacketStatus_IsValid(int value) {
   switch(value) {
     case 1:
     case 2:
+    case 3:
       return true;
     default:
       return false;
@@ -457,17 +190,18 @@ bool Packet_PacketHeader_PacketStatus_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
-const Packet_PacketHeader_PacketStatus Packet_PacketHeader::RETRIEVED;
-const Packet_PacketHeader_PacketStatus Packet_PacketHeader::CONTINUE;
-const Packet_PacketHeader_PacketStatus Packet_PacketHeader::PacketStatus_MIN;
-const Packet_PacketHeader_PacketStatus Packet_PacketHeader::PacketStatus_MAX;
-const int Packet_PacketHeader::PacketStatus_ARRAYSIZE;
+const PacketHeader_PacketStatus PacketHeader::RETRIEVED;
+const PacketHeader_PacketStatus PacketHeader::CONTINUE;
+const PacketHeader_PacketStatus PacketHeader::ERROR;
+const PacketHeader_PacketStatus PacketHeader::PacketStatus_MIN;
+const PacketHeader_PacketStatus PacketHeader::PacketStatus_MAX;
+const int PacketHeader::PacketStatus_ARRAYSIZE;
 #endif  // _MSC_VER
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_TransmitType_descriptor() {
+const ::google::protobuf::EnumDescriptor* PacketHeader_TransmitType_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Packet_PacketHeader_TransmitType_descriptor_;
+  return PacketHeader_TransmitType_descriptor_;
 }
-bool Packet_PacketHeader_TransmitType_IsValid(int value) {
+bool PacketHeader_TransmitType_IsValid(int value) {
   switch(value) {
     case 0:
     case 1:
@@ -478,84 +212,90 @@ bool Packet_PacketHeader_TransmitType_IsValid(int value) {
 }
 
 #ifndef _MSC_VER
-const Packet_PacketHeader_TransmitType Packet_PacketHeader::DIRECT;
-const Packet_PacketHeader_TransmitType Packet_PacketHeader::BROADCAST;
-const Packet_PacketHeader_TransmitType Packet_PacketHeader::TransmitType_MIN;
-const Packet_PacketHeader_TransmitType Packet_PacketHeader::TransmitType_MAX;
-const int Packet_PacketHeader::TransmitType_ARRAYSIZE;
+const PacketHeader_TransmitType PacketHeader::DIRECT;
+const PacketHeader_TransmitType PacketHeader::BROADCAST;
+const PacketHeader_TransmitType PacketHeader::TransmitType_MIN;
+const PacketHeader_TransmitType PacketHeader::TransmitType_MAX;
+const int PacketHeader::TransmitType_ARRAYSIZE;
 #endif  // _MSC_VER
 #ifndef _MSC_VER
-const int Packet_PacketHeader::kIdFieldNumber;
-const int Packet_PacketHeader::kCmdFieldNumber;
-const int Packet_PacketHeader::kFormatFieldNumber;
-const int Packet_PacketHeader::kStatusFieldNumber;
-const int Packet_PacketHeader::kTransmitFieldNumber;
-const int Packet_PacketHeader::kPacketNumFieldNumber;
-const int Packet_PacketHeader::kTotalPacketsFieldNumber;
+const int PacketHeader::kIdFieldNumber;
+const int PacketHeader::kCmdFieldNumber;
+const int PacketHeader::kLengthFieldNumber;
+const int PacketHeader::kFormatFieldNumber;
+const int PacketHeader::kStatusFieldNumber;
+const int PacketHeader::kTransmitFieldNumber;
+const int PacketHeader::kPacketNumFieldNumber;
+const int PacketHeader::kTotalPacketsFieldNumber;
+const int PacketHeader::kBodyCrcFieldNumber;
+const int PacketHeader::kHeaderCrcFieldNumber;
 #endif  // !_MSC_VER
 
-Packet_PacketHeader::Packet_PacketHeader()
+PacketHeader::PacketHeader()
   : ::google::protobuf::Message() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:Packet.PacketHeader)
+  // @@protoc_insertion_point(constructor:Butters.Model.PacketHeader)
 }
 
-void Packet_PacketHeader::InitAsDefaultInstance() {
+void PacketHeader::InitAsDefaultInstance() {
 }
 
-Packet_PacketHeader::Packet_PacketHeader(const Packet_PacketHeader& from)
+PacketHeader::PacketHeader(const PacketHeader& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Packet.PacketHeader)
+  // @@protoc_insertion_point(copy_constructor:Butters.Model.PacketHeader)
 }
 
-void Packet_PacketHeader::SharedCtor() {
+void PacketHeader::SharedCtor() {
   _cached_size_ = 0;
   id_ = 0u;
   cmd_ = 1;
+  length_ = 0u;
   format_ = 1;
   status_ = 1;
   transmit_ = 0;
   packetnum_ = 0u;
   totalpackets_ = 0u;
+  bodycrc_ = 0u;
+  headercrc_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Packet_PacketHeader::~Packet_PacketHeader() {
-  // @@protoc_insertion_point(destructor:Packet.PacketHeader)
+PacketHeader::~PacketHeader() {
+  // @@protoc_insertion_point(destructor:Butters.Model.PacketHeader)
   SharedDtor();
 }
 
-void Packet_PacketHeader::SharedDtor() {
+void PacketHeader::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Packet_PacketHeader::SetCachedSize(int size) const {
+void PacketHeader::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Packet_PacketHeader::descriptor() {
+const ::google::protobuf::Descriptor* PacketHeader::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Packet_PacketHeader_descriptor_;
+  return PacketHeader_descriptor_;
 }
 
-const Packet_PacketHeader& Packet_PacketHeader::default_instance() {
+const PacketHeader& PacketHeader::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_packet_2eproto();
   return *default_instance_;
 }
 
-Packet_PacketHeader* Packet_PacketHeader::default_instance_ = NULL;
+PacketHeader* PacketHeader::default_instance_ = NULL;
 
-Packet_PacketHeader* Packet_PacketHeader::New() const {
-  return new Packet_PacketHeader;
+PacketHeader* PacketHeader::New() const {
+  return new PacketHeader;
 }
 
-void Packet_PacketHeader::Clear() {
+void PacketHeader::Clear() {
 #define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<Packet_PacketHeader*>(16)->f) - \
+  &reinterpret_cast<PacketHeader*>(16)->f) - \
    reinterpret_cast<char*>(16))
 
 #define ZR_(first, last) do {                              \
@@ -564,13 +304,15 @@ void Packet_PacketHeader::Clear() {
     ::memset(&first, 0, n);                                \
   } while (0)
 
-  if (_has_bits_[0 / 32] & 127) {
+  if (_has_bits_[0 / 32] & 255) {
     ZR_(transmit_, totalpackets_);
     id_ = 0u;
     cmd_ = 1;
+    length_ = 0u;
     format_ = 1;
     status_ = 1;
   }
+  ZR_(bodycrc_, headercrc_);
 
 #undef OFFSET_OF_FIELD_
 #undef ZR_
@@ -579,11 +321,11 @@ void Packet_PacketHeader::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool Packet_PacketHeader::MergePartialFromCodedStream(
+bool PacketHeader::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Packet.PacketHeader)
+  // @@protoc_insertion_point(parse_start:Butters.Model.PacketHeader)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -603,7 +345,7 @@ bool Packet_PacketHeader::MergePartialFromCodedStream(
         break;
       }
 
-      // required .Packet.PacketHeader.CmdType cmd = 2 [default = CREATE];
+      // required .Butters.Model.PacketHeader.CmdType cmd = 2 [default = CREATE];
       case 2: {
         if (tag == 16) {
          parse_cmd:
@@ -611,81 +353,96 @@ bool Packet_PacketHeader::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::Packet_PacketHeader_CmdType_IsValid(value)) {
-            set_cmd(static_cast< ::Packet_PacketHeader_CmdType >(value));
+          if (::Butters::Model::PacketHeader_CmdType_IsValid(value)) {
+            set_cmd(static_cast< ::Butters::Model::PacketHeader_CmdType >(value));
           } else {
             mutable_unknown_fields()->AddVarint(2, value);
           }
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_format;
+        if (input->ExpectTag(24)) goto parse_length;
         break;
       }
 
-      // required .Packet.PacketHeader.FormatType format = 3 [default = BINARY];
+      // required uint32 length = 3 [default = 0];
       case 3: {
         if (tag == 24) {
+         parse_length:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &length_)));
+          set_has_length();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_format;
+        break;
+      }
+
+      // required .Butters.Model.PacketHeader.FormatType format = 4 [default = BINARY];
+      case 4: {
+        if (tag == 32) {
          parse_format:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::Packet_PacketHeader_FormatType_IsValid(value)) {
-            set_format(static_cast< ::Packet_PacketHeader_FormatType >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(3, value);
-          }
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_status;
-        break;
-      }
-
-      // required .Packet.PacketHeader.PacketStatus status = 4 [default = RETRIEVED];
-      case 4: {
-        if (tag == 32) {
-         parse_status:
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::Packet_PacketHeader_PacketStatus_IsValid(value)) {
-            set_status(static_cast< ::Packet_PacketHeader_PacketStatus >(value));
+          if (::Butters::Model::PacketHeader_FormatType_IsValid(value)) {
+            set_format(static_cast< ::Butters::Model::PacketHeader_FormatType >(value));
           } else {
             mutable_unknown_fields()->AddVarint(4, value);
           }
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_transmit;
+        if (input->ExpectTag(40)) goto parse_status;
         break;
       }
 
-      // required .Packet.PacketHeader.TransmitType transmit = 5 [default = DIRECT];
+      // required .Butters.Model.PacketHeader.PacketStatus status = 5 [default = RETRIEVED];
       case 5: {
         if (tag == 40) {
-         parse_transmit:
+         parse_status:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::Packet_PacketHeader_TransmitType_IsValid(value)) {
-            set_transmit(static_cast< ::Packet_PacketHeader_TransmitType >(value));
+          if (::Butters::Model::PacketHeader_PacketStatus_IsValid(value)) {
+            set_status(static_cast< ::Butters::Model::PacketHeader_PacketStatus >(value));
           } else {
             mutable_unknown_fields()->AddVarint(5, value);
           }
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(48)) goto parse_packetNum;
+        if (input->ExpectTag(48)) goto parse_transmit;
         break;
       }
 
-      // required uint32 packetNum = 6;
+      // required .Butters.Model.PacketHeader.TransmitType transmit = 6 [default = DIRECT];
       case 6: {
         if (tag == 48) {
+         parse_transmit:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::Butters::Model::PacketHeader_TransmitType_IsValid(value)) {
+            set_transmit(static_cast< ::Butters::Model::PacketHeader_TransmitType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(6, value);
+          }
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(56)) goto parse_packetNum;
+        break;
+      }
+
+      // required uint32 packetNum = 7;
+      case 7: {
+        if (tag == 56) {
          parse_packetNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -694,18 +451,48 @@ bool Packet_PacketHeader::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(56)) goto parse_totalPackets;
+        if (input->ExpectTag(64)) goto parse_totalPackets;
         break;
       }
 
-      // required uint32 totalPackets = 7;
-      case 7: {
-        if (tag == 56) {
+      // required uint32 totalPackets = 8;
+      case 8: {
+        if (tag == 64) {
          parse_totalPackets:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &totalpackets_)));
           set_has_totalpackets();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(72)) goto parse_bodyCrc;
+        break;
+      }
+
+      // required uint32 bodyCrc = 9;
+      case 9: {
+        if (tag == 72) {
+         parse_bodyCrc:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &bodycrc_)));
+          set_has_bodycrc();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(80)) goto parse_headerCrc;
+        break;
+      }
+
+      // required uint32 headerCrc = 10;
+      case 10: {
+        if (tag == 80) {
+         parse_headerCrc:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &headercrc_)));
+          set_has_headercrc();
         } else {
           goto handle_unusual;
         }
@@ -727,114 +514,144 @@ bool Packet_PacketHeader::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:Packet.PacketHeader)
+  // @@protoc_insertion_point(parse_success:Butters.Model.PacketHeader)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:Packet.PacketHeader)
+  // @@protoc_insertion_point(parse_failure:Butters.Model.PacketHeader)
   return false;
 #undef DO_
 }
 
-void Packet_PacketHeader::SerializeWithCachedSizes(
+void PacketHeader::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Packet.PacketHeader)
+  // @@protoc_insertion_point(serialize_start:Butters.Model.PacketHeader)
   // required uint32 id = 1 [default = 0];
   if (has_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
   }
 
-  // required .Packet.PacketHeader.CmdType cmd = 2 [default = CREATE];
+  // required .Butters.Model.PacketHeader.CmdType cmd = 2 [default = CREATE];
   if (has_cmd()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->cmd(), output);
   }
 
-  // required .Packet.PacketHeader.FormatType format = 3 [default = BINARY];
+  // required uint32 length = 3 [default = 0];
+  if (has_length()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->length(), output);
+  }
+
+  // required .Butters.Model.PacketHeader.FormatType format = 4 [default = BINARY];
   if (has_format()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      3, this->format(), output);
+      4, this->format(), output);
   }
 
-  // required .Packet.PacketHeader.PacketStatus status = 4 [default = RETRIEVED];
+  // required .Butters.Model.PacketHeader.PacketStatus status = 5 [default = RETRIEVED];
   if (has_status()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->status(), output);
+      5, this->status(), output);
   }
 
-  // required .Packet.PacketHeader.TransmitType transmit = 5 [default = DIRECT];
+  // required .Butters.Model.PacketHeader.TransmitType transmit = 6 [default = DIRECT];
   if (has_transmit()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      5, this->transmit(), output);
+      6, this->transmit(), output);
   }
 
-  // required uint32 packetNum = 6;
+  // required uint32 packetNum = 7;
   if (has_packetnum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->packetnum(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->packetnum(), output);
   }
 
-  // required uint32 totalPackets = 7;
+  // required uint32 totalPackets = 8;
   if (has_totalpackets()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->totalpackets(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->totalpackets(), output);
+  }
+
+  // required uint32 bodyCrc = 9;
+  if (has_bodycrc()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(9, this->bodycrc(), output);
+  }
+
+  // required uint32 headerCrc = 10;
+  if (has_headercrc()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->headercrc(), output);
   }
 
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:Packet.PacketHeader)
+  // @@protoc_insertion_point(serialize_end:Butters.Model.PacketHeader)
 }
 
-::google::protobuf::uint8* Packet_PacketHeader::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* PacketHeader::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Packet.PacketHeader)
+  // @@protoc_insertion_point(serialize_to_array_start:Butters.Model.PacketHeader)
   // required uint32 id = 1 [default = 0];
   if (has_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
   }
 
-  // required .Packet.PacketHeader.CmdType cmd = 2 [default = CREATE];
+  // required .Butters.Model.PacketHeader.CmdType cmd = 2 [default = CREATE];
   if (has_cmd()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->cmd(), target);
   }
 
-  // required .Packet.PacketHeader.FormatType format = 3 [default = BINARY];
+  // required uint32 length = 3 [default = 0];
+  if (has_length()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->length(), target);
+  }
+
+  // required .Butters.Model.PacketHeader.FormatType format = 4 [default = BINARY];
   if (has_format()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      3, this->format(), target);
+      4, this->format(), target);
   }
 
-  // required .Packet.PacketHeader.PacketStatus status = 4 [default = RETRIEVED];
+  // required .Butters.Model.PacketHeader.PacketStatus status = 5 [default = RETRIEVED];
   if (has_status()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->status(), target);
+      5, this->status(), target);
   }
 
-  // required .Packet.PacketHeader.TransmitType transmit = 5 [default = DIRECT];
+  // required .Butters.Model.PacketHeader.TransmitType transmit = 6 [default = DIRECT];
   if (has_transmit()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      5, this->transmit(), target);
+      6, this->transmit(), target);
   }
 
-  // required uint32 packetNum = 6;
+  // required uint32 packetNum = 7;
   if (has_packetnum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->packetnum(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->packetnum(), target);
   }
 
-  // required uint32 totalPackets = 7;
+  // required uint32 totalPackets = 8;
   if (has_totalpackets()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->totalpackets(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->totalpackets(), target);
+  }
+
+  // required uint32 bodyCrc = 9;
+  if (has_bodycrc()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(9, this->bodycrc(), target);
+  }
+
+  // required uint32 headerCrc = 10;
+  if (has_headercrc()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(10, this->headercrc(), target);
   }
 
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Packet.PacketHeader)
+  // @@protoc_insertion_point(serialize_to_array_end:Butters.Model.PacketHeader)
   return target;
 }
 
-int Packet_PacketHeader::ByteSize() const {
+int PacketHeader::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -845,42 +662,65 @@ int Packet_PacketHeader::ByteSize() const {
           this->id());
     }
 
-    // required .Packet.PacketHeader.CmdType cmd = 2 [default = CREATE];
+    // required .Butters.Model.PacketHeader.CmdType cmd = 2 [default = CREATE];
     if (has_cmd()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->cmd());
     }
 
-    // required .Packet.PacketHeader.FormatType format = 3 [default = BINARY];
+    // required uint32 length = 3 [default = 0];
+    if (has_length()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->length());
+    }
+
+    // required .Butters.Model.PacketHeader.FormatType format = 4 [default = BINARY];
     if (has_format()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->format());
     }
 
-    // required .Packet.PacketHeader.PacketStatus status = 4 [default = RETRIEVED];
+    // required .Butters.Model.PacketHeader.PacketStatus status = 5 [default = RETRIEVED];
     if (has_status()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->status());
     }
 
-    // required .Packet.PacketHeader.TransmitType transmit = 5 [default = DIRECT];
+    // required .Butters.Model.PacketHeader.TransmitType transmit = 6 [default = DIRECT];
     if (has_transmit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->transmit());
     }
 
-    // required uint32 packetNum = 6;
+    // required uint32 packetNum = 7;
     if (has_packetnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->packetnum());
     }
 
-    // required uint32 totalPackets = 7;
+    // required uint32 totalPackets = 8;
     if (has_totalpackets()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->totalpackets());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // required uint32 bodyCrc = 9;
+    if (has_bodycrc()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->bodycrc());
+    }
+
+    // required uint32 headerCrc = 10;
+    if (has_headercrc()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->headercrc());
     }
 
   }
@@ -895,10 +735,10 @@ int Packet_PacketHeader::ByteSize() const {
   return total_size;
 }
 
-void Packet_PacketHeader::MergeFrom(const ::google::protobuf::Message& from) {
+void PacketHeader::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Packet_PacketHeader* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Packet_PacketHeader*>(
+  const PacketHeader* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PacketHeader*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -907,7 +747,7 @@ void Packet_PacketHeader::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Packet_PacketHeader::MergeFrom(const Packet_PacketHeader& from) {
+void PacketHeader::MergeFrom(const PacketHeader& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_id()) {
@@ -915,6 +755,9 @@ void Packet_PacketHeader::MergeFrom(const Packet_PacketHeader& from) {
     }
     if (from.has_cmd()) {
       set_cmd(from.cmd());
+    }
+    if (from.has_length()) {
+      set_length(from.length());
     }
     if (from.has_format()) {
       set_format(from.format());
@@ -932,328 +775,65 @@ void Packet_PacketHeader::MergeFrom(const Packet_PacketHeader& from) {
       set_totalpackets(from.totalpackets());
     }
   }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_bodycrc()) {
+      set_bodycrc(from.bodycrc());
+    }
+    if (from.has_headercrc()) {
+      set_headercrc(from.headercrc());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Packet_PacketHeader::CopyFrom(const ::google::protobuf::Message& from) {
+void PacketHeader::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Packet_PacketHeader::CopyFrom(const Packet_PacketHeader& from) {
+void PacketHeader::CopyFrom(const PacketHeader& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Packet_PacketHeader::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000007f) != 0x0000007f) return false;
+bool PacketHeader::IsInitialized() const {
+  if ((_has_bits_[0] & 0x000003ff) != 0x000003ff) return false;
 
   return true;
 }
 
-void Packet_PacketHeader::Swap(Packet_PacketHeader* other) {
+void PacketHeader::Swap(PacketHeader* other) {
   if (other != this) {
     std::swap(id_, other->id_);
     std::swap(cmd_, other->cmd_);
+    std::swap(length_, other->length_);
     std::swap(format_, other->format_);
     std::swap(status_, other->status_);
     std::swap(transmit_, other->transmit_);
     std::swap(packetnum_, other->packetnum_);
     std::swap(totalpackets_, other->totalpackets_);
+    std::swap(bodycrc_, other->bodycrc_);
+    std::swap(headercrc_, other->headercrc_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::google::protobuf::Metadata Packet_PacketHeader::GetMetadata() const {
+::google::protobuf::Metadata PacketHeader::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Packet_PacketHeader_descriptor_;
-  metadata.reflection = Packet_PacketHeader_reflection_;
-  return metadata;
-}
-
-
-// -------------------------------------------------------------------
-
-#ifndef _MSC_VER
-const int Packet::kHeaderFieldNumber;
-const int Packet::kBodyFieldNumber;
-#endif  // !_MSC_VER
-
-Packet::Packet()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:Packet)
-}
-
-void Packet::InitAsDefaultInstance() {
-  header_ = const_cast< ::Packet_PacketHeader*>(&::Packet_PacketHeader::default_instance());
-  body_ = const_cast< ::Packet_PacketBody*>(&::Packet_PacketBody::default_instance());
-}
-
-Packet::Packet(const Packet& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:Packet)
-}
-
-void Packet::SharedCtor() {
-  _cached_size_ = 0;
-  header_ = NULL;
-  body_ = NULL;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Packet::~Packet() {
-  // @@protoc_insertion_point(destructor:Packet)
-  SharedDtor();
-}
-
-void Packet::SharedDtor() {
-  if (this != default_instance_) {
-    delete header_;
-    delete body_;
-  }
-}
-
-void Packet::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Packet::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Packet_descriptor_;
-}
-
-const Packet& Packet::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_packet_2eproto();
-  return *default_instance_;
-}
-
-Packet* Packet::default_instance_ = NULL;
-
-Packet* Packet::New() const {
-  return new Packet;
-}
-
-void Packet::Clear() {
-  if (_has_bits_[0 / 32] & 3) {
-    if (has_header()) {
-      if (header_ != NULL) header_->::Packet_PacketHeader::Clear();
-    }
-    if (has_body()) {
-      if (body_ != NULL) body_->::Packet_PacketBody::Clear();
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Packet::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:Packet)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .Packet.PacketHeader header = 1;
-      case 1: {
-        if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_header()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_body;
-        break;
-      }
-
-      // optional .Packet.PacketBody body = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_body:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_body()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectAtEnd()) goto success;
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0 ||
-            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:Packet)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:Packet)
-  return false;
-#undef DO_
-}
-
-void Packet::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:Packet)
-  // required .Packet.PacketHeader header = 1;
-  if (has_header()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->header(), output);
-  }
-
-  // optional .Packet.PacketBody body = 2;
-  if (has_body()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->body(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-  // @@protoc_insertion_point(serialize_end:Packet)
-}
-
-::google::protobuf::uint8* Packet::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Packet)
-  // required .Packet.PacketHeader header = 1;
-  if (has_header()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->header(), target);
-  }
-
-  // optional .Packet.PacketBody body = 2;
-  if (has_body()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->body(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:Packet)
-  return target;
-}
-
-int Packet::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .Packet.PacketHeader header = 1;
-    if (has_header()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->header());
-    }
-
-    // optional .Packet.PacketBody body = 2;
-    if (has_body()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->body());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Packet::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Packet* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Packet*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Packet::MergeFrom(const Packet& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_header()) {
-      mutable_header()->::Packet_PacketHeader::MergeFrom(from.header());
-    }
-    if (from.has_body()) {
-      mutable_body()->::Packet_PacketBody::MergeFrom(from.body());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Packet::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Packet::CopyFrom(const Packet& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Packet::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
-
-  if (has_header()) {
-    if (!this->header().IsInitialized()) return false;
-  }
-  return true;
-}
-
-void Packet::Swap(Packet* other) {
-  if (other != this) {
-    std::swap(header_, other->header_);
-    std::swap(body_, other->body_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Packet::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Packet_descriptor_;
-  metadata.reflection = Packet_reflection_;
+  metadata.descriptor = PacketHeader_descriptor_;
+  metadata.reflection = PacketHeader_reflection_;
   return metadata;
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
+
+}  // namespace Model
+}  // namespace Butters
 
 // @@protoc_insertion_point(global_scope)

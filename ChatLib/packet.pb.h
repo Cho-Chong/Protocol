@@ -27,103 +27,105 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
+namespace Butters {
+namespace Model {
+
 // Internal implementation detail -- do not call these.
 void  protobuf_AddDesc_packet_2eproto();
 void protobuf_AssignDesc_packet_2eproto();
 void protobuf_ShutdownFile_packet_2eproto();
 
-class Packet;
-class Packet_PacketBody;
-class Packet_PacketHeader;
+class PacketHeader;
 
-enum Packet_PacketHeader_CmdType {
-  Packet_PacketHeader_CmdType_CREATE = 1,
-  Packet_PacketHeader_CmdType_READ = 2,
-  Packet_PacketHeader_CmdType_UPDATE = 3,
-  Packet_PacketHeader_CmdType_DELETE = 4
+enum PacketHeader_CmdType {
+  PacketHeader_CmdType_CREATE = 1,
+  PacketHeader_CmdType_READ = 2,
+  PacketHeader_CmdType_UPDATE = 3,
+  PacketHeader_CmdType_DELETE = 4
 };
-bool Packet_PacketHeader_CmdType_IsValid(int value);
-const Packet_PacketHeader_CmdType Packet_PacketHeader_CmdType_CmdType_MIN = Packet_PacketHeader_CmdType_CREATE;
-const Packet_PacketHeader_CmdType Packet_PacketHeader_CmdType_CmdType_MAX = Packet_PacketHeader_CmdType_DELETE;
-const int Packet_PacketHeader_CmdType_CmdType_ARRAYSIZE = Packet_PacketHeader_CmdType_CmdType_MAX + 1;
+bool PacketHeader_CmdType_IsValid(int value);
+const PacketHeader_CmdType PacketHeader_CmdType_CmdType_MIN = PacketHeader_CmdType_CREATE;
+const PacketHeader_CmdType PacketHeader_CmdType_CmdType_MAX = PacketHeader_CmdType_DELETE;
+const int PacketHeader_CmdType_CmdType_ARRAYSIZE = PacketHeader_CmdType_CmdType_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_CmdType_descriptor();
-inline const ::std::string& Packet_PacketHeader_CmdType_Name(Packet_PacketHeader_CmdType value) {
+const ::google::protobuf::EnumDescriptor* PacketHeader_CmdType_descriptor();
+inline const ::std::string& PacketHeader_CmdType_Name(PacketHeader_CmdType value) {
   return ::google::protobuf::internal::NameOfEnum(
-    Packet_PacketHeader_CmdType_descriptor(), value);
+    PacketHeader_CmdType_descriptor(), value);
 }
-inline bool Packet_PacketHeader_CmdType_Parse(
-    const ::std::string& name, Packet_PacketHeader_CmdType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Packet_PacketHeader_CmdType>(
-    Packet_PacketHeader_CmdType_descriptor(), name, value);
+inline bool PacketHeader_CmdType_Parse(
+    const ::std::string& name, PacketHeader_CmdType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<PacketHeader_CmdType>(
+    PacketHeader_CmdType_descriptor(), name, value);
 }
-enum Packet_PacketHeader_FormatType {
-  Packet_PacketHeader_FormatType_BINARY = 1,
-  Packet_PacketHeader_FormatType_ASCII = 2
+enum PacketHeader_FormatType {
+  PacketHeader_FormatType_BINARY = 1,
+  PacketHeader_FormatType_ASCII = 2
 };
-bool Packet_PacketHeader_FormatType_IsValid(int value);
-const Packet_PacketHeader_FormatType Packet_PacketHeader_FormatType_FormatType_MIN = Packet_PacketHeader_FormatType_BINARY;
-const Packet_PacketHeader_FormatType Packet_PacketHeader_FormatType_FormatType_MAX = Packet_PacketHeader_FormatType_ASCII;
-const int Packet_PacketHeader_FormatType_FormatType_ARRAYSIZE = Packet_PacketHeader_FormatType_FormatType_MAX + 1;
+bool PacketHeader_FormatType_IsValid(int value);
+const PacketHeader_FormatType PacketHeader_FormatType_FormatType_MIN = PacketHeader_FormatType_BINARY;
+const PacketHeader_FormatType PacketHeader_FormatType_FormatType_MAX = PacketHeader_FormatType_ASCII;
+const int PacketHeader_FormatType_FormatType_ARRAYSIZE = PacketHeader_FormatType_FormatType_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_FormatType_descriptor();
-inline const ::std::string& Packet_PacketHeader_FormatType_Name(Packet_PacketHeader_FormatType value) {
+const ::google::protobuf::EnumDescriptor* PacketHeader_FormatType_descriptor();
+inline const ::std::string& PacketHeader_FormatType_Name(PacketHeader_FormatType value) {
   return ::google::protobuf::internal::NameOfEnum(
-    Packet_PacketHeader_FormatType_descriptor(), value);
+    PacketHeader_FormatType_descriptor(), value);
 }
-inline bool Packet_PacketHeader_FormatType_Parse(
-    const ::std::string& name, Packet_PacketHeader_FormatType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Packet_PacketHeader_FormatType>(
-    Packet_PacketHeader_FormatType_descriptor(), name, value);
+inline bool PacketHeader_FormatType_Parse(
+    const ::std::string& name, PacketHeader_FormatType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<PacketHeader_FormatType>(
+    PacketHeader_FormatType_descriptor(), name, value);
 }
-enum Packet_PacketHeader_PacketStatus {
-  Packet_PacketHeader_PacketStatus_RETRIEVED = 1,
-  Packet_PacketHeader_PacketStatus_CONTINUE = 2
+enum PacketHeader_PacketStatus {
+  PacketHeader_PacketStatus_RETRIEVED = 1,
+  PacketHeader_PacketStatus_CONTINUE = 2,
+  PacketHeader_PacketStatus_ERROR = 3
 };
-bool Packet_PacketHeader_PacketStatus_IsValid(int value);
-const Packet_PacketHeader_PacketStatus Packet_PacketHeader_PacketStatus_PacketStatus_MIN = Packet_PacketHeader_PacketStatus_RETRIEVED;
-const Packet_PacketHeader_PacketStatus Packet_PacketHeader_PacketStatus_PacketStatus_MAX = Packet_PacketHeader_PacketStatus_CONTINUE;
-const int Packet_PacketHeader_PacketStatus_PacketStatus_ARRAYSIZE = Packet_PacketHeader_PacketStatus_PacketStatus_MAX + 1;
+bool PacketHeader_PacketStatus_IsValid(int value);
+const PacketHeader_PacketStatus PacketHeader_PacketStatus_PacketStatus_MIN = PacketHeader_PacketStatus_RETRIEVED;
+const PacketHeader_PacketStatus PacketHeader_PacketStatus_PacketStatus_MAX = PacketHeader_PacketStatus_ERROR;
+const int PacketHeader_PacketStatus_PacketStatus_ARRAYSIZE = PacketHeader_PacketStatus_PacketStatus_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_PacketStatus_descriptor();
-inline const ::std::string& Packet_PacketHeader_PacketStatus_Name(Packet_PacketHeader_PacketStatus value) {
+const ::google::protobuf::EnumDescriptor* PacketHeader_PacketStatus_descriptor();
+inline const ::std::string& PacketHeader_PacketStatus_Name(PacketHeader_PacketStatus value) {
   return ::google::protobuf::internal::NameOfEnum(
-    Packet_PacketHeader_PacketStatus_descriptor(), value);
+    PacketHeader_PacketStatus_descriptor(), value);
 }
-inline bool Packet_PacketHeader_PacketStatus_Parse(
-    const ::std::string& name, Packet_PacketHeader_PacketStatus* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Packet_PacketHeader_PacketStatus>(
-    Packet_PacketHeader_PacketStatus_descriptor(), name, value);
+inline bool PacketHeader_PacketStatus_Parse(
+    const ::std::string& name, PacketHeader_PacketStatus* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<PacketHeader_PacketStatus>(
+    PacketHeader_PacketStatus_descriptor(), name, value);
 }
-enum Packet_PacketHeader_TransmitType {
-  Packet_PacketHeader_TransmitType_DIRECT = 0,
-  Packet_PacketHeader_TransmitType_BROADCAST = 1
+enum PacketHeader_TransmitType {
+  PacketHeader_TransmitType_DIRECT = 0,
+  PacketHeader_TransmitType_BROADCAST = 1
 };
-bool Packet_PacketHeader_TransmitType_IsValid(int value);
-const Packet_PacketHeader_TransmitType Packet_PacketHeader_TransmitType_TransmitType_MIN = Packet_PacketHeader_TransmitType_DIRECT;
-const Packet_PacketHeader_TransmitType Packet_PacketHeader_TransmitType_TransmitType_MAX = Packet_PacketHeader_TransmitType_BROADCAST;
-const int Packet_PacketHeader_TransmitType_TransmitType_ARRAYSIZE = Packet_PacketHeader_TransmitType_TransmitType_MAX + 1;
+bool PacketHeader_TransmitType_IsValid(int value);
+const PacketHeader_TransmitType PacketHeader_TransmitType_TransmitType_MIN = PacketHeader_TransmitType_DIRECT;
+const PacketHeader_TransmitType PacketHeader_TransmitType_TransmitType_MAX = PacketHeader_TransmitType_BROADCAST;
+const int PacketHeader_TransmitType_TransmitType_ARRAYSIZE = PacketHeader_TransmitType_TransmitType_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* Packet_PacketHeader_TransmitType_descriptor();
-inline const ::std::string& Packet_PacketHeader_TransmitType_Name(Packet_PacketHeader_TransmitType value) {
+const ::google::protobuf::EnumDescriptor* PacketHeader_TransmitType_descriptor();
+inline const ::std::string& PacketHeader_TransmitType_Name(PacketHeader_TransmitType value) {
   return ::google::protobuf::internal::NameOfEnum(
-    Packet_PacketHeader_TransmitType_descriptor(), value);
+    PacketHeader_TransmitType_descriptor(), value);
 }
-inline bool Packet_PacketHeader_TransmitType_Parse(
-    const ::std::string& name, Packet_PacketHeader_TransmitType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Packet_PacketHeader_TransmitType>(
-    Packet_PacketHeader_TransmitType_descriptor(), name, value);
+inline bool PacketHeader_TransmitType_Parse(
+    const ::std::string& name, PacketHeader_TransmitType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<PacketHeader_TransmitType>(
+    PacketHeader_TransmitType_descriptor(), name, value);
 }
 // ===================================================================
 
-class Packet_PacketBody : public ::google::protobuf::Message {
+class PacketHeader : public ::google::protobuf::Message {
  public:
-  Packet_PacketBody();
-  virtual ~Packet_PacketBody();
+  PacketHeader();
+  virtual ~PacketHeader();
 
-  Packet_PacketBody(const Packet_PacketBody& from);
+  PacketHeader(const PacketHeader& from);
 
-  inline Packet_PacketBody& operator=(const Packet_PacketBody& from) {
+  inline PacketHeader& operator=(const PacketHeader& from) {
     CopyFrom(from);
     return *this;
   }
@@ -137,17 +139,17 @@ class Packet_PacketBody : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Packet_PacketBody& default_instance();
+  static const PacketHeader& default_instance();
 
-  void Swap(Packet_PacketBody* other);
+  void Swap(PacketHeader* other);
 
   // implements Message ----------------------------------------------
 
-  Packet_PacketBody* New() const;
+  PacketHeader* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Packet_PacketBody& from);
-  void MergeFrom(const Packet_PacketBody& from);
+  void CopyFrom(const PacketHeader& from);
+  void MergeFrom(const PacketHeader& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -167,184 +169,103 @@ class Packet_PacketBody : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
-  // accessors -------------------------------------------------------
-
-  // repeated uint32 buffer = 1;
-  inline int buffer_size() const;
-  inline void clear_buffer();
-  static const int kBufferFieldNumber = 1;
-  inline ::google::protobuf::uint32 buffer(int index) const;
-  inline void set_buffer(int index, ::google::protobuf::uint32 value);
-  inline void add_buffer(::google::protobuf::uint32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
-      buffer() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
-      mutable_buffer();
-
-  // @@protoc_insertion_point(class_scope:Packet.PacketBody)
- private:
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > buffer_;
-  friend void  protobuf_AddDesc_packet_2eproto();
-  friend void protobuf_AssignDesc_packet_2eproto();
-  friend void protobuf_ShutdownFile_packet_2eproto();
-
-  void InitAsDefaultInstance();
-  static Packet_PacketBody* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Packet_PacketHeader : public ::google::protobuf::Message {
- public:
-  Packet_PacketHeader();
-  virtual ~Packet_PacketHeader();
-
-  Packet_PacketHeader(const Packet_PacketHeader& from);
-
-  inline Packet_PacketHeader& operator=(const Packet_PacketHeader& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Packet_PacketHeader& default_instance();
-
-  void Swap(Packet_PacketHeader* other);
-
-  // implements Message ----------------------------------------------
-
-  Packet_PacketHeader* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Packet_PacketHeader& from);
-  void MergeFrom(const Packet_PacketHeader& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  typedef Packet_PacketHeader_CmdType CmdType;
-  static const CmdType CREATE = Packet_PacketHeader_CmdType_CREATE;
-  static const CmdType READ = Packet_PacketHeader_CmdType_READ;
-  static const CmdType UPDATE = Packet_PacketHeader_CmdType_UPDATE;
-  static const CmdType DELETE = Packet_PacketHeader_CmdType_DELETE;
+  typedef PacketHeader_CmdType CmdType;
+  static const CmdType CREATE = PacketHeader_CmdType_CREATE;
+  static const CmdType READ = PacketHeader_CmdType_READ;
+  static const CmdType UPDATE = PacketHeader_CmdType_UPDATE;
+  static const CmdType DELETE = PacketHeader_CmdType_DELETE;
   static inline bool CmdType_IsValid(int value) {
-    return Packet_PacketHeader_CmdType_IsValid(value);
+    return PacketHeader_CmdType_IsValid(value);
   }
   static const CmdType CmdType_MIN =
-    Packet_PacketHeader_CmdType_CmdType_MIN;
+    PacketHeader_CmdType_CmdType_MIN;
   static const CmdType CmdType_MAX =
-    Packet_PacketHeader_CmdType_CmdType_MAX;
+    PacketHeader_CmdType_CmdType_MAX;
   static const int CmdType_ARRAYSIZE =
-    Packet_PacketHeader_CmdType_CmdType_ARRAYSIZE;
+    PacketHeader_CmdType_CmdType_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
   CmdType_descriptor() {
-    return Packet_PacketHeader_CmdType_descriptor();
+    return PacketHeader_CmdType_descriptor();
   }
   static inline const ::std::string& CmdType_Name(CmdType value) {
-    return Packet_PacketHeader_CmdType_Name(value);
+    return PacketHeader_CmdType_Name(value);
   }
   static inline bool CmdType_Parse(const ::std::string& name,
       CmdType* value) {
-    return Packet_PacketHeader_CmdType_Parse(name, value);
+    return PacketHeader_CmdType_Parse(name, value);
   }
 
-  typedef Packet_PacketHeader_FormatType FormatType;
-  static const FormatType BINARY = Packet_PacketHeader_FormatType_BINARY;
-  static const FormatType ASCII = Packet_PacketHeader_FormatType_ASCII;
+  typedef PacketHeader_FormatType FormatType;
+  static const FormatType BINARY = PacketHeader_FormatType_BINARY;
+  static const FormatType ASCII = PacketHeader_FormatType_ASCII;
   static inline bool FormatType_IsValid(int value) {
-    return Packet_PacketHeader_FormatType_IsValid(value);
+    return PacketHeader_FormatType_IsValid(value);
   }
   static const FormatType FormatType_MIN =
-    Packet_PacketHeader_FormatType_FormatType_MIN;
+    PacketHeader_FormatType_FormatType_MIN;
   static const FormatType FormatType_MAX =
-    Packet_PacketHeader_FormatType_FormatType_MAX;
+    PacketHeader_FormatType_FormatType_MAX;
   static const int FormatType_ARRAYSIZE =
-    Packet_PacketHeader_FormatType_FormatType_ARRAYSIZE;
+    PacketHeader_FormatType_FormatType_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
   FormatType_descriptor() {
-    return Packet_PacketHeader_FormatType_descriptor();
+    return PacketHeader_FormatType_descriptor();
   }
   static inline const ::std::string& FormatType_Name(FormatType value) {
-    return Packet_PacketHeader_FormatType_Name(value);
+    return PacketHeader_FormatType_Name(value);
   }
   static inline bool FormatType_Parse(const ::std::string& name,
       FormatType* value) {
-    return Packet_PacketHeader_FormatType_Parse(name, value);
+    return PacketHeader_FormatType_Parse(name, value);
   }
 
-  typedef Packet_PacketHeader_PacketStatus PacketStatus;
-  static const PacketStatus RETRIEVED = Packet_PacketHeader_PacketStatus_RETRIEVED;
-  static const PacketStatus CONTINUE = Packet_PacketHeader_PacketStatus_CONTINUE;
+  typedef PacketHeader_PacketStatus PacketStatus;
+  static const PacketStatus RETRIEVED = PacketHeader_PacketStatus_RETRIEVED;
+  static const PacketStatus CONTINUE = PacketHeader_PacketStatus_CONTINUE;
+  static const PacketStatus ERROR = PacketHeader_PacketStatus_ERROR;
   static inline bool PacketStatus_IsValid(int value) {
-    return Packet_PacketHeader_PacketStatus_IsValid(value);
+    return PacketHeader_PacketStatus_IsValid(value);
   }
   static const PacketStatus PacketStatus_MIN =
-    Packet_PacketHeader_PacketStatus_PacketStatus_MIN;
+    PacketHeader_PacketStatus_PacketStatus_MIN;
   static const PacketStatus PacketStatus_MAX =
-    Packet_PacketHeader_PacketStatus_PacketStatus_MAX;
+    PacketHeader_PacketStatus_PacketStatus_MAX;
   static const int PacketStatus_ARRAYSIZE =
-    Packet_PacketHeader_PacketStatus_PacketStatus_ARRAYSIZE;
+    PacketHeader_PacketStatus_PacketStatus_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
   PacketStatus_descriptor() {
-    return Packet_PacketHeader_PacketStatus_descriptor();
+    return PacketHeader_PacketStatus_descriptor();
   }
   static inline const ::std::string& PacketStatus_Name(PacketStatus value) {
-    return Packet_PacketHeader_PacketStatus_Name(value);
+    return PacketHeader_PacketStatus_Name(value);
   }
   static inline bool PacketStatus_Parse(const ::std::string& name,
       PacketStatus* value) {
-    return Packet_PacketHeader_PacketStatus_Parse(name, value);
+    return PacketHeader_PacketStatus_Parse(name, value);
   }
 
-  typedef Packet_PacketHeader_TransmitType TransmitType;
-  static const TransmitType DIRECT = Packet_PacketHeader_TransmitType_DIRECT;
-  static const TransmitType BROADCAST = Packet_PacketHeader_TransmitType_BROADCAST;
+  typedef PacketHeader_TransmitType TransmitType;
+  static const TransmitType DIRECT = PacketHeader_TransmitType_DIRECT;
+  static const TransmitType BROADCAST = PacketHeader_TransmitType_BROADCAST;
   static inline bool TransmitType_IsValid(int value) {
-    return Packet_PacketHeader_TransmitType_IsValid(value);
+    return PacketHeader_TransmitType_IsValid(value);
   }
   static const TransmitType TransmitType_MIN =
-    Packet_PacketHeader_TransmitType_TransmitType_MIN;
+    PacketHeader_TransmitType_TransmitType_MIN;
   static const TransmitType TransmitType_MAX =
-    Packet_PacketHeader_TransmitType_TransmitType_MAX;
+    PacketHeader_TransmitType_TransmitType_MAX;
   static const int TransmitType_ARRAYSIZE =
-    Packet_PacketHeader_TransmitType_TransmitType_ARRAYSIZE;
+    PacketHeader_TransmitType_TransmitType_ARRAYSIZE;
   static inline const ::google::protobuf::EnumDescriptor*
   TransmitType_descriptor() {
-    return Packet_PacketHeader_TransmitType_descriptor();
+    return PacketHeader_TransmitType_descriptor();
   }
   static inline const ::std::string& TransmitType_Name(TransmitType value) {
-    return Packet_PacketHeader_TransmitType_Name(value);
+    return PacketHeader_TransmitType_Name(value);
   }
   static inline bool TransmitType_Parse(const ::std::string& name,
       TransmitType* value) {
-    return Packet_PacketHeader_TransmitType_Parse(name, value);
+    return PacketHeader_TransmitType_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
@@ -356,54 +277,77 @@ class Packet_PacketHeader : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 id() const;
   inline void set_id(::google::protobuf::uint32 value);
 
-  // required .Packet.PacketHeader.CmdType cmd = 2 [default = CREATE];
+  // required .Butters.Model.PacketHeader.CmdType cmd = 2 [default = CREATE];
   inline bool has_cmd() const;
   inline void clear_cmd();
   static const int kCmdFieldNumber = 2;
-  inline ::Packet_PacketHeader_CmdType cmd() const;
-  inline void set_cmd(::Packet_PacketHeader_CmdType value);
+  inline ::Butters::Model::PacketHeader_CmdType cmd() const;
+  inline void set_cmd(::Butters::Model::PacketHeader_CmdType value);
 
-  // required .Packet.PacketHeader.FormatType format = 3 [default = BINARY];
+  // required uint32 length = 3 [default = 0];
+  inline bool has_length() const;
+  inline void clear_length();
+  static const int kLengthFieldNumber = 3;
+  inline ::google::protobuf::uint32 length() const;
+  inline void set_length(::google::protobuf::uint32 value);
+
+  // required .Butters.Model.PacketHeader.FormatType format = 4 [default = BINARY];
   inline bool has_format() const;
   inline void clear_format();
-  static const int kFormatFieldNumber = 3;
-  inline ::Packet_PacketHeader_FormatType format() const;
-  inline void set_format(::Packet_PacketHeader_FormatType value);
+  static const int kFormatFieldNumber = 4;
+  inline ::Butters::Model::PacketHeader_FormatType format() const;
+  inline void set_format(::Butters::Model::PacketHeader_FormatType value);
 
-  // required .Packet.PacketHeader.PacketStatus status = 4 [default = RETRIEVED];
+  // required .Butters.Model.PacketHeader.PacketStatus status = 5 [default = RETRIEVED];
   inline bool has_status() const;
   inline void clear_status();
-  static const int kStatusFieldNumber = 4;
-  inline ::Packet_PacketHeader_PacketStatus status() const;
-  inline void set_status(::Packet_PacketHeader_PacketStatus value);
+  static const int kStatusFieldNumber = 5;
+  inline ::Butters::Model::PacketHeader_PacketStatus status() const;
+  inline void set_status(::Butters::Model::PacketHeader_PacketStatus value);
 
-  // required .Packet.PacketHeader.TransmitType transmit = 5 [default = DIRECT];
+  // required .Butters.Model.PacketHeader.TransmitType transmit = 6 [default = DIRECT];
   inline bool has_transmit() const;
   inline void clear_transmit();
-  static const int kTransmitFieldNumber = 5;
-  inline ::Packet_PacketHeader_TransmitType transmit() const;
-  inline void set_transmit(::Packet_PacketHeader_TransmitType value);
+  static const int kTransmitFieldNumber = 6;
+  inline ::Butters::Model::PacketHeader_TransmitType transmit() const;
+  inline void set_transmit(::Butters::Model::PacketHeader_TransmitType value);
 
-  // required uint32 packetNum = 6;
+  // required uint32 packetNum = 7;
   inline bool has_packetnum() const;
   inline void clear_packetnum();
-  static const int kPacketNumFieldNumber = 6;
+  static const int kPacketNumFieldNumber = 7;
   inline ::google::protobuf::uint32 packetnum() const;
   inline void set_packetnum(::google::protobuf::uint32 value);
 
-  // required uint32 totalPackets = 7;
+  // required uint32 totalPackets = 8;
   inline bool has_totalpackets() const;
   inline void clear_totalpackets();
-  static const int kTotalPacketsFieldNumber = 7;
+  static const int kTotalPacketsFieldNumber = 8;
   inline ::google::protobuf::uint32 totalpackets() const;
   inline void set_totalpackets(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:Packet.PacketHeader)
+  // required uint32 bodyCrc = 9;
+  inline bool has_bodycrc() const;
+  inline void clear_bodycrc();
+  static const int kBodyCrcFieldNumber = 9;
+  inline ::google::protobuf::uint32 bodycrc() const;
+  inline void set_bodycrc(::google::protobuf::uint32 value);
+
+  // required uint32 headerCrc = 10;
+  inline bool has_headercrc() const;
+  inline void clear_headercrc();
+  static const int kHeaderCrcFieldNumber = 10;
+  inline ::google::protobuf::uint32 headercrc() const;
+  inline void set_headercrc(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:Butters.Model.PacketHeader)
  private:
   inline void set_has_id();
   inline void clear_has_id();
   inline void set_has_cmd();
   inline void clear_has_cmd();
+  inline void set_has_length();
+  inline void clear_has_length();
   inline void set_has_format();
   inline void clear_has_format();
   inline void set_has_status();
@@ -414,6 +358,10 @@ class Packet_PacketHeader : public ::google::protobuf::Message {
   inline void clear_has_packetnum();
   inline void set_has_totalpackets();
   inline void clear_has_totalpackets();
+  inline void set_has_bodycrc();
+  inline void clear_has_bodycrc();
+  inline void set_has_headercrc();
+  inline void clear_has_headercrc();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -421,439 +369,301 @@ class Packet_PacketHeader : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::uint32 id_;
   int cmd_;
+  ::google::protobuf::uint32 length_;
   int format_;
   int status_;
   int transmit_;
   ::google::protobuf::uint32 packetnum_;
   ::google::protobuf::uint32 totalpackets_;
+  ::google::protobuf::uint32 bodycrc_;
+  ::google::protobuf::uint32 headercrc_;
   friend void  protobuf_AddDesc_packet_2eproto();
   friend void protobuf_AssignDesc_packet_2eproto();
   friend void protobuf_ShutdownFile_packet_2eproto();
 
   void InitAsDefaultInstance();
-  static Packet_PacketHeader* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class Packet : public ::google::protobuf::Message {
- public:
-  Packet();
-  virtual ~Packet();
-
-  Packet(const Packet& from);
-
-  inline Packet& operator=(const Packet& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const Packet& default_instance();
-
-  void Swap(Packet* other);
-
-  // implements Message ----------------------------------------------
-
-  Packet* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Packet& from);
-  void MergeFrom(const Packet& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  typedef Packet_PacketBody PacketBody;
-  typedef Packet_PacketHeader PacketHeader;
-
-  // accessors -------------------------------------------------------
-
-  // required .Packet.PacketHeader header = 1;
-  inline bool has_header() const;
-  inline void clear_header();
-  static const int kHeaderFieldNumber = 1;
-  inline const ::Packet_PacketHeader& header() const;
-  inline ::Packet_PacketHeader* mutable_header();
-  inline ::Packet_PacketHeader* release_header();
-  inline void set_allocated_header(::Packet_PacketHeader* header);
-
-  // optional .Packet.PacketBody body = 2;
-  inline bool has_body() const;
-  inline void clear_body();
-  static const int kBodyFieldNumber = 2;
-  inline const ::Packet_PacketBody& body() const;
-  inline ::Packet_PacketBody* mutable_body();
-  inline ::Packet_PacketBody* release_body();
-  inline void set_allocated_body(::Packet_PacketBody* body);
-
-  // @@protoc_insertion_point(class_scope:Packet)
- private:
-  inline void set_has_header();
-  inline void clear_has_header();
-  inline void set_has_body();
-  inline void clear_has_body();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
-  ::Packet_PacketHeader* header_;
-  ::Packet_PacketBody* body_;
-  friend void  protobuf_AddDesc_packet_2eproto();
-  friend void protobuf_AssignDesc_packet_2eproto();
-  friend void protobuf_ShutdownFile_packet_2eproto();
-
-  void InitAsDefaultInstance();
-  static Packet* default_instance_;
+  static PacketHeader* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// Packet_PacketBody
-
-// repeated uint32 buffer = 1;
-inline int Packet_PacketBody::buffer_size() const {
-  return buffer_.size();
-}
-inline void Packet_PacketBody::clear_buffer() {
-  buffer_.Clear();
-}
-inline ::google::protobuf::uint32 Packet_PacketBody::buffer(int index) const {
-  // @@protoc_insertion_point(field_get:Packet.PacketBody.buffer)
-  return buffer_.Get(index);
-}
-inline void Packet_PacketBody::set_buffer(int index, ::google::protobuf::uint32 value) {
-  buffer_.Set(index, value);
-  // @@protoc_insertion_point(field_set:Packet.PacketBody.buffer)
-}
-inline void Packet_PacketBody::add_buffer(::google::protobuf::uint32 value) {
-  buffer_.Add(value);
-  // @@protoc_insertion_point(field_add:Packet.PacketBody.buffer)
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
-Packet_PacketBody::buffer() const {
-  // @@protoc_insertion_point(field_list:Packet.PacketBody.buffer)
-  return buffer_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
-Packet_PacketBody::mutable_buffer() {
-  // @@protoc_insertion_point(field_mutable_list:Packet.PacketBody.buffer)
-  return &buffer_;
-}
-
-// -------------------------------------------------------------------
-
-// Packet_PacketHeader
+// PacketHeader
 
 // required uint32 id = 1 [default = 0];
-inline bool Packet_PacketHeader::has_id() const {
+inline bool PacketHeader::has_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Packet_PacketHeader::set_has_id() {
+inline void PacketHeader::set_has_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Packet_PacketHeader::clear_has_id() {
+inline void PacketHeader::clear_has_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Packet_PacketHeader::clear_id() {
+inline void PacketHeader::clear_id() {
   id_ = 0u;
   clear_has_id();
 }
-inline ::google::protobuf::uint32 Packet_PacketHeader::id() const {
-  // @@protoc_insertion_point(field_get:Packet.PacketHeader.id)
+inline ::google::protobuf::uint32 PacketHeader::id() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PacketHeader.id)
   return id_;
 }
-inline void Packet_PacketHeader::set_id(::google::protobuf::uint32 value) {
+inline void PacketHeader::set_id(::google::protobuf::uint32 value) {
   set_has_id();
   id_ = value;
-  // @@protoc_insertion_point(field_set:Packet.PacketHeader.id)
+  // @@protoc_insertion_point(field_set:Butters.Model.PacketHeader.id)
 }
 
-// required .Packet.PacketHeader.CmdType cmd = 2 [default = CREATE];
-inline bool Packet_PacketHeader::has_cmd() const {
+// required .Butters.Model.PacketHeader.CmdType cmd = 2 [default = CREATE];
+inline bool PacketHeader::has_cmd() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void Packet_PacketHeader::set_has_cmd() {
+inline void PacketHeader::set_has_cmd() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void Packet_PacketHeader::clear_has_cmd() {
+inline void PacketHeader::clear_has_cmd() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void Packet_PacketHeader::clear_cmd() {
+inline void PacketHeader::clear_cmd() {
   cmd_ = 1;
   clear_has_cmd();
 }
-inline ::Packet_PacketHeader_CmdType Packet_PacketHeader::cmd() const {
-  // @@protoc_insertion_point(field_get:Packet.PacketHeader.cmd)
-  return static_cast< ::Packet_PacketHeader_CmdType >(cmd_);
+inline ::Butters::Model::PacketHeader_CmdType PacketHeader::cmd() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PacketHeader.cmd)
+  return static_cast< ::Butters::Model::PacketHeader_CmdType >(cmd_);
 }
-inline void Packet_PacketHeader::set_cmd(::Packet_PacketHeader_CmdType value) {
-  assert(::Packet_PacketHeader_CmdType_IsValid(value));
+inline void PacketHeader::set_cmd(::Butters::Model::PacketHeader_CmdType value) {
+  assert(::Butters::Model::PacketHeader_CmdType_IsValid(value));
   set_has_cmd();
   cmd_ = value;
-  // @@protoc_insertion_point(field_set:Packet.PacketHeader.cmd)
+  // @@protoc_insertion_point(field_set:Butters.Model.PacketHeader.cmd)
 }
 
-// required .Packet.PacketHeader.FormatType format = 3 [default = BINARY];
-inline bool Packet_PacketHeader::has_format() const {
+// required uint32 length = 3 [default = 0];
+inline bool PacketHeader::has_length() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void Packet_PacketHeader::set_has_format() {
+inline void PacketHeader::set_has_length() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void Packet_PacketHeader::clear_has_format() {
+inline void PacketHeader::clear_has_length() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void Packet_PacketHeader::clear_format() {
+inline void PacketHeader::clear_length() {
+  length_ = 0u;
+  clear_has_length();
+}
+inline ::google::protobuf::uint32 PacketHeader::length() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PacketHeader.length)
+  return length_;
+}
+inline void PacketHeader::set_length(::google::protobuf::uint32 value) {
+  set_has_length();
+  length_ = value;
+  // @@protoc_insertion_point(field_set:Butters.Model.PacketHeader.length)
+}
+
+// required .Butters.Model.PacketHeader.FormatType format = 4 [default = BINARY];
+inline bool PacketHeader::has_format() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void PacketHeader::set_has_format() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void PacketHeader::clear_has_format() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void PacketHeader::clear_format() {
   format_ = 1;
   clear_has_format();
 }
-inline ::Packet_PacketHeader_FormatType Packet_PacketHeader::format() const {
-  // @@protoc_insertion_point(field_get:Packet.PacketHeader.format)
-  return static_cast< ::Packet_PacketHeader_FormatType >(format_);
+inline ::Butters::Model::PacketHeader_FormatType PacketHeader::format() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PacketHeader.format)
+  return static_cast< ::Butters::Model::PacketHeader_FormatType >(format_);
 }
-inline void Packet_PacketHeader::set_format(::Packet_PacketHeader_FormatType value) {
-  assert(::Packet_PacketHeader_FormatType_IsValid(value));
+inline void PacketHeader::set_format(::Butters::Model::PacketHeader_FormatType value) {
+  assert(::Butters::Model::PacketHeader_FormatType_IsValid(value));
   set_has_format();
   format_ = value;
-  // @@protoc_insertion_point(field_set:Packet.PacketHeader.format)
+  // @@protoc_insertion_point(field_set:Butters.Model.PacketHeader.format)
 }
 
-// required .Packet.PacketHeader.PacketStatus status = 4 [default = RETRIEVED];
-inline bool Packet_PacketHeader::has_status() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+// required .Butters.Model.PacketHeader.PacketStatus status = 5 [default = RETRIEVED];
+inline bool PacketHeader::has_status() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void Packet_PacketHeader::set_has_status() {
-  _has_bits_[0] |= 0x00000008u;
+inline void PacketHeader::set_has_status() {
+  _has_bits_[0] |= 0x00000010u;
 }
-inline void Packet_PacketHeader::clear_has_status() {
-  _has_bits_[0] &= ~0x00000008u;
+inline void PacketHeader::clear_has_status() {
+  _has_bits_[0] &= ~0x00000010u;
 }
-inline void Packet_PacketHeader::clear_status() {
+inline void PacketHeader::clear_status() {
   status_ = 1;
   clear_has_status();
 }
-inline ::Packet_PacketHeader_PacketStatus Packet_PacketHeader::status() const {
-  // @@protoc_insertion_point(field_get:Packet.PacketHeader.status)
-  return static_cast< ::Packet_PacketHeader_PacketStatus >(status_);
+inline ::Butters::Model::PacketHeader_PacketStatus PacketHeader::status() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PacketHeader.status)
+  return static_cast< ::Butters::Model::PacketHeader_PacketStatus >(status_);
 }
-inline void Packet_PacketHeader::set_status(::Packet_PacketHeader_PacketStatus value) {
-  assert(::Packet_PacketHeader_PacketStatus_IsValid(value));
+inline void PacketHeader::set_status(::Butters::Model::PacketHeader_PacketStatus value) {
+  assert(::Butters::Model::PacketHeader_PacketStatus_IsValid(value));
   set_has_status();
   status_ = value;
-  // @@protoc_insertion_point(field_set:Packet.PacketHeader.status)
+  // @@protoc_insertion_point(field_set:Butters.Model.PacketHeader.status)
 }
 
-// required .Packet.PacketHeader.TransmitType transmit = 5 [default = DIRECT];
-inline bool Packet_PacketHeader::has_transmit() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+// required .Butters.Model.PacketHeader.TransmitType transmit = 6 [default = DIRECT];
+inline bool PacketHeader::has_transmit() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void Packet_PacketHeader::set_has_transmit() {
-  _has_bits_[0] |= 0x00000010u;
+inline void PacketHeader::set_has_transmit() {
+  _has_bits_[0] |= 0x00000020u;
 }
-inline void Packet_PacketHeader::clear_has_transmit() {
-  _has_bits_[0] &= ~0x00000010u;
+inline void PacketHeader::clear_has_transmit() {
+  _has_bits_[0] &= ~0x00000020u;
 }
-inline void Packet_PacketHeader::clear_transmit() {
+inline void PacketHeader::clear_transmit() {
   transmit_ = 0;
   clear_has_transmit();
 }
-inline ::Packet_PacketHeader_TransmitType Packet_PacketHeader::transmit() const {
-  // @@protoc_insertion_point(field_get:Packet.PacketHeader.transmit)
-  return static_cast< ::Packet_PacketHeader_TransmitType >(transmit_);
+inline ::Butters::Model::PacketHeader_TransmitType PacketHeader::transmit() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PacketHeader.transmit)
+  return static_cast< ::Butters::Model::PacketHeader_TransmitType >(transmit_);
 }
-inline void Packet_PacketHeader::set_transmit(::Packet_PacketHeader_TransmitType value) {
-  assert(::Packet_PacketHeader_TransmitType_IsValid(value));
+inline void PacketHeader::set_transmit(::Butters::Model::PacketHeader_TransmitType value) {
+  assert(::Butters::Model::PacketHeader_TransmitType_IsValid(value));
   set_has_transmit();
   transmit_ = value;
-  // @@protoc_insertion_point(field_set:Packet.PacketHeader.transmit)
+  // @@protoc_insertion_point(field_set:Butters.Model.PacketHeader.transmit)
 }
 
-// required uint32 packetNum = 6;
-inline bool Packet_PacketHeader::has_packetnum() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+// required uint32 packetNum = 7;
+inline bool PacketHeader::has_packetnum() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void Packet_PacketHeader::set_has_packetnum() {
-  _has_bits_[0] |= 0x00000020u;
+inline void PacketHeader::set_has_packetnum() {
+  _has_bits_[0] |= 0x00000040u;
 }
-inline void Packet_PacketHeader::clear_has_packetnum() {
-  _has_bits_[0] &= ~0x00000020u;
+inline void PacketHeader::clear_has_packetnum() {
+  _has_bits_[0] &= ~0x00000040u;
 }
-inline void Packet_PacketHeader::clear_packetnum() {
+inline void PacketHeader::clear_packetnum() {
   packetnum_ = 0u;
   clear_has_packetnum();
 }
-inline ::google::protobuf::uint32 Packet_PacketHeader::packetnum() const {
-  // @@protoc_insertion_point(field_get:Packet.PacketHeader.packetNum)
+inline ::google::protobuf::uint32 PacketHeader::packetnum() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PacketHeader.packetNum)
   return packetnum_;
 }
-inline void Packet_PacketHeader::set_packetnum(::google::protobuf::uint32 value) {
+inline void PacketHeader::set_packetnum(::google::protobuf::uint32 value) {
   set_has_packetnum();
   packetnum_ = value;
-  // @@protoc_insertion_point(field_set:Packet.PacketHeader.packetNum)
+  // @@protoc_insertion_point(field_set:Butters.Model.PacketHeader.packetNum)
 }
 
-// required uint32 totalPackets = 7;
-inline bool Packet_PacketHeader::has_totalpackets() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+// required uint32 totalPackets = 8;
+inline bool PacketHeader::has_totalpackets() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void Packet_PacketHeader::set_has_totalpackets() {
-  _has_bits_[0] |= 0x00000040u;
+inline void PacketHeader::set_has_totalpackets() {
+  _has_bits_[0] |= 0x00000080u;
 }
-inline void Packet_PacketHeader::clear_has_totalpackets() {
-  _has_bits_[0] &= ~0x00000040u;
+inline void PacketHeader::clear_has_totalpackets() {
+  _has_bits_[0] &= ~0x00000080u;
 }
-inline void Packet_PacketHeader::clear_totalpackets() {
+inline void PacketHeader::clear_totalpackets() {
   totalpackets_ = 0u;
   clear_has_totalpackets();
 }
-inline ::google::protobuf::uint32 Packet_PacketHeader::totalpackets() const {
-  // @@protoc_insertion_point(field_get:Packet.PacketHeader.totalPackets)
+inline ::google::protobuf::uint32 PacketHeader::totalpackets() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PacketHeader.totalPackets)
   return totalpackets_;
 }
-inline void Packet_PacketHeader::set_totalpackets(::google::protobuf::uint32 value) {
+inline void PacketHeader::set_totalpackets(::google::protobuf::uint32 value) {
   set_has_totalpackets();
   totalpackets_ = value;
-  // @@protoc_insertion_point(field_set:Packet.PacketHeader.totalPackets)
+  // @@protoc_insertion_point(field_set:Butters.Model.PacketHeader.totalPackets)
 }
 
-// -------------------------------------------------------------------
-
-// Packet
-
-// required .Packet.PacketHeader header = 1;
-inline bool Packet::has_header() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+// required uint32 bodyCrc = 9;
+inline bool PacketHeader::has_bodycrc() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void Packet::set_has_header() {
-  _has_bits_[0] |= 0x00000001u;
+inline void PacketHeader::set_has_bodycrc() {
+  _has_bits_[0] |= 0x00000100u;
 }
-inline void Packet::clear_has_header() {
-  _has_bits_[0] &= ~0x00000001u;
+inline void PacketHeader::clear_has_bodycrc() {
+  _has_bits_[0] &= ~0x00000100u;
 }
-inline void Packet::clear_header() {
-  if (header_ != NULL) header_->::Packet_PacketHeader::Clear();
-  clear_has_header();
+inline void PacketHeader::clear_bodycrc() {
+  bodycrc_ = 0u;
+  clear_has_bodycrc();
 }
-inline const ::Packet_PacketHeader& Packet::header() const {
-  // @@protoc_insertion_point(field_get:Packet.header)
-  return header_ != NULL ? *header_ : *default_instance_->header_;
+inline ::google::protobuf::uint32 PacketHeader::bodycrc() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PacketHeader.bodyCrc)
+  return bodycrc_;
 }
-inline ::Packet_PacketHeader* Packet::mutable_header() {
-  set_has_header();
-  if (header_ == NULL) header_ = new ::Packet_PacketHeader;
-  // @@protoc_insertion_point(field_mutable:Packet.header)
-  return header_;
-}
-inline ::Packet_PacketHeader* Packet::release_header() {
-  clear_has_header();
-  ::Packet_PacketHeader* temp = header_;
-  header_ = NULL;
-  return temp;
-}
-inline void Packet::set_allocated_header(::Packet_PacketHeader* header) {
-  delete header_;
-  header_ = header;
-  if (header) {
-    set_has_header();
-  } else {
-    clear_has_header();
-  }
-  // @@protoc_insertion_point(field_set_allocated:Packet.header)
+inline void PacketHeader::set_bodycrc(::google::protobuf::uint32 value) {
+  set_has_bodycrc();
+  bodycrc_ = value;
+  // @@protoc_insertion_point(field_set:Butters.Model.PacketHeader.bodyCrc)
 }
 
-// optional .Packet.PacketBody body = 2;
-inline bool Packet::has_body() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+// required uint32 headerCrc = 10;
+inline bool PacketHeader::has_headercrc() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
-inline void Packet::set_has_body() {
-  _has_bits_[0] |= 0x00000002u;
+inline void PacketHeader::set_has_headercrc() {
+  _has_bits_[0] |= 0x00000200u;
 }
-inline void Packet::clear_has_body() {
-  _has_bits_[0] &= ~0x00000002u;
+inline void PacketHeader::clear_has_headercrc() {
+  _has_bits_[0] &= ~0x00000200u;
 }
-inline void Packet::clear_body() {
-  if (body_ != NULL) body_->::Packet_PacketBody::Clear();
-  clear_has_body();
+inline void PacketHeader::clear_headercrc() {
+  headercrc_ = 0u;
+  clear_has_headercrc();
 }
-inline const ::Packet_PacketBody& Packet::body() const {
-  // @@protoc_insertion_point(field_get:Packet.body)
-  return body_ != NULL ? *body_ : *default_instance_->body_;
+inline ::google::protobuf::uint32 PacketHeader::headercrc() const {
+  // @@protoc_insertion_point(field_get:Butters.Model.PacketHeader.headerCrc)
+  return headercrc_;
 }
-inline ::Packet_PacketBody* Packet::mutable_body() {
-  set_has_body();
-  if (body_ == NULL) body_ = new ::Packet_PacketBody;
-  // @@protoc_insertion_point(field_mutable:Packet.body)
-  return body_;
-}
-inline ::Packet_PacketBody* Packet::release_body() {
-  clear_has_body();
-  ::Packet_PacketBody* temp = body_;
-  body_ = NULL;
-  return temp;
-}
-inline void Packet::set_allocated_body(::Packet_PacketBody* body) {
-  delete body_;
-  body_ = body;
-  if (body) {
-    set_has_body();
-  } else {
-    clear_has_body();
-  }
-  // @@protoc_insertion_point(field_set_allocated:Packet.body)
+inline void PacketHeader::set_headercrc(::google::protobuf::uint32 value) {
+  set_has_headercrc();
+  headercrc_ = value;
+  // @@protoc_insertion_point(field_set:Butters.Model.PacketHeader.headerCrc)
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
 
+}  // namespace Model
+}  // namespace Butters
+
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::Packet_PacketHeader_CmdType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Butters::Model::PacketHeader_CmdType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Packet_PacketHeader_CmdType>() {
-  return ::Packet_PacketHeader_CmdType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Butters::Model::PacketHeader_CmdType>() {
+  return ::Butters::Model::PacketHeader_CmdType_descriptor();
 }
-template <> struct is_proto_enum< ::Packet_PacketHeader_FormatType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Butters::Model::PacketHeader_FormatType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Packet_PacketHeader_FormatType>() {
-  return ::Packet_PacketHeader_FormatType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Butters::Model::PacketHeader_FormatType>() {
+  return ::Butters::Model::PacketHeader_FormatType_descriptor();
 }
-template <> struct is_proto_enum< ::Packet_PacketHeader_PacketStatus> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Butters::Model::PacketHeader_PacketStatus> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Packet_PacketHeader_PacketStatus>() {
-  return ::Packet_PacketHeader_PacketStatus_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Butters::Model::PacketHeader_PacketStatus>() {
+  return ::Butters::Model::PacketHeader_PacketStatus_descriptor();
 }
-template <> struct is_proto_enum< ::Packet_PacketHeader_TransmitType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::Butters::Model::PacketHeader_TransmitType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Packet_PacketHeader_TransmitType>() {
-  return ::Packet_PacketHeader_TransmitType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Butters::Model::PacketHeader_TransmitType>() {
+  return ::Butters::Model::PacketHeader_TransmitType_descriptor();
 }
 
 }  // namespace google

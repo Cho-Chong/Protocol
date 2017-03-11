@@ -21,6 +21,9 @@
 
 namespace ChatLib
 {
+#define MAX_PENDING_CONNECTIONS (10)
+    
+    
     STATUS TcpDevice::Connect()
     {
         int sockfd = 0;
@@ -71,15 +74,15 @@ namespace ChatLib
                 return STATUS_ERROR;
             }
             
-//            if(listen(sockfd, MAX_PENDING_CONNECTIONS) == -1)
-//            {
-//                perror("listen");
-//                return 0;
-//            }
-//            else
-//            {
-//                FD_SET(sockfd, &Connection.SocketSet);
-//            }
+            if(listen(sockfd, MAX_PENDING_CONNECTIONS) == -1)
+            {
+                perror("listen");
+                return 0;
+            }
+            else
+            {
+                FD_SET(sockfd, &Connection.SocketSet);
+            }
             
             Connection.InputSocket = sockfd;
             Connection.MaxSocket = sockfd;
@@ -100,12 +103,12 @@ namespace ChatLib
     
     SINT TcpDevice::Read(SINT fd, BYTE* buffer, UINT byte_size) const
     {
-        return recv(Connection.InputSocket, buffer, byte_size , 0);
+        return recv(fd, buffer, byte_size , 0);
     }
     
     SINT TcpDevice::Write(SINT fd, const BYTE* buffer, UINT byte_size) const
     {
-        return send(Connection.InputSocket, buffer, byte_size, 0);
+        return send(fd, buffer, byte_size, 0);
     }
 
 }
